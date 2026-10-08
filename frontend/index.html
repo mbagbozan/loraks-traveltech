@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LORAKS TravelTech Platform — Canlı Uyum & FinTech Kokpiti</title>
+  <style>
+    :root {
+      --primary: #1A432E;
+      --primary-light: #2D5E43;
+      --bg: #FDFCF8;
+      --surface: #FFFFFF;
+      --text: #1F2937;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+      --accent: #D97706;
+      --success: #10B981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    .brand h1 { color: var(--primary); font-size: 26px; font-weight: 800; }
+    .brand p { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .tursab-badge {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-align: right;
+    }
+    .tursab-badge div:first-child { font-size: 10px; font-weight: 700; opacity: 0.8; }
+    .tursab-badge div:last-child { font-size: 16px; font-weight: 900; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .card h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 4px; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      background: #FAFAFA;
+    }
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .result-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      background: #F9FAFB;
+      border: 1px solid var(--border);
+    }
+    .badge-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .badge-P0 { background: #E0F2FE; color: #0369A1; }
+    .badge-P1 { background: #DCFCE7; color: #15803D; }
+    .badge-P2 { background: #FEF3C7; color: #B45309; }
+    .badge-P3 { background: #FEE2E2; color: #B91C1C; }
+    .badge-P4 { background: #111827; color: #F9FAFB; }
+    .split-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 13px;
+    }
+    .split-row strong { color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="brand">
+      <h1>LORAKS TravelTech Platform</h1>
+      <p>Universal Experience Marketplace · Compliance Engine · Dual-Entity Infrastructure</p>
+    </div>
+    <div class="tursab-badge">
+      <div>HUKUKİ KALKAN</div>
+      <div>TÜRSAB No: 2387</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- PANEL 1: PATHWAY CLASSIFICATION ENGINE -->
+    <div class="card">
+      <h2>1. Akıllı Pathway Teşhis Motoru (P0-P4)</h2>
+      <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
+        İlanın özelliklerini seçin; motor ilanı anlık olarak doğru yasal patikaya yönlendirsin.
+      </p>
+
+      <div class="form-group">
+        <label>Deneyim Başlığı:</label>
+        <input type="text" id="listingTitle" value="Bodrum Günbatımı Tekne Yoga & Tadım">
+      </div>
+
+      <div class="form-group">
+        <label>Kategori:</label>
+        <select id="listingCategory">
+          <option value="workshop">Atölye (Workshop)</option>
+          <option value="food">Gastronomi / Şef Tadımı</option>
+          <option value="outdoor" selected>Doğa / Outdoor / Tekne</option>
+          <option value="cultural">Kültür / Tarih</option>
+          <option value="retreat">Kamp / Kaçamak</option>
+        </select>
+      </div>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="chkTransport" checked>
+        <span>Ulaşım / Transfer dahil</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="chkAccommodation">
+        <span>Konaklama / Geceleme dahil</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="chkHeritage">
+        <span>Tarihi Ören Yeri (Rehber Şartı)</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="chkOwnCar">
+        <span>Host kendi şahsi aracıyla taşıyor (Korsan test)</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="chkHygiene" checked>
+        <span>Hijyen / Uzmanlık Belgesi var</span>
+      </label>
+
+      <button class="btn" onclick="classifyListing()">İlanı Sınıflandır (Classify)</button>
+
+      <div id="classificationResult" class="result-box" style="display:none;"></div>
+    </div>
+
+    <!-- PANEL 2: FINTECH SPLIT PAYMENT & 1% STOPAJ -->
+    <div class="card">
+      <h2>2. FinTech Split Payment & Stopaj Hesaplayıcı</h2>
+      <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
+        6493 Sayılı Kanun (PSP Split) ve 7524 Sayılı Kanun (%1 stopaj) anlık hesaplama:
+      </p>
+
+      <div class="form-group">
+        <label>Brüt Rezervasyon Tutarı (TL):</label>
+        <input type="number" id="splitGross" value="2000" step="50">
+      </div>
+
+      <div class="form-group">
+        <label>Aktif Pathway Kodu:</label>
+        <select id="splitPathway">
+          <option value="P0">P0 — Doğrudan Atölye (%15 Komisyon)</option>
+          <option value="P1">P1 — Onaylı Deneyim (%15 Komisyon)</option>
+          <option value="P2" selected>P2 — Regüle Seyahat (%12 Komisyon)</option>
+        </select>
+      </div>
+
+      <button class="btn" onclick="calculateSplit()">Fon Dağılımını Hesapla</button>
+
+      <div id="splitResult" class="result-box" style="display:none;"></div>
+    </div>
+
+    <!-- PANEL 3: TÜRSAB COMPLIANT CHECKOUT PREVIEW -->
+    <div class="card">
+      <h2>3. Canlı Checkout & Güvence Kalkanı</h2>
+      <div id="checkoutBox">
+        <div style="background:#FFF; border:1px solid #D1D5DB; border-radius:8px; padding:12px; margin-bottom:12px;">
+          <div style="font-size:11px; color:#6B7280; font-weight:700;">T.C. KÜLTÜR VE TURİZM BAKANLIĞI DENETİMİ</div>
+          <div style="font-size:13px; font-weight:700; color:#1A432E;">LORAKS Seyahat Acentası A.Ş. (TÜRSAB No: 2387)</div>
+          <div style="font-size:11px; color:#4B5563;">Zorunlu Mesleki Sorumluluk Sigortası teminatı altındadır.</div>
+        </div>
+
+        <div style="background:#F3F4F6; padding:10px 12px; border-radius:8px; display:flex; justify-content:space-between; margin-bottom:12px;">
+          <span>Toplam Ödenecek:</span>
+          <strong id="dispGross" style="color:#1A432E; font-size:16px;">2.000,00 TL</strong>
+        </div>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="chkMss" onchange="validateCheckout()">
+          <span style="font-size:12px;"><strong>Mesafeli Satış Sözleşmesi</strong>'ni ve cayma hakkı istisnasını onaylıyorum.</span>
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="chkPts" onchange="validateCheckout()">
+          <span style="font-size:12px;"><strong>Paket Tur Sözleşmesi</strong> şartlarını ve sigorta kapsamını kabul ediyorum.</span>
+        </label>
+
+        <button id="btnPay" class="btn" style="background:#9CA3AF; margin-top:8px;" disabled onclick="executeMockCharge()">
+          Ödemeyi Tamamla
+        </button>
+
+        <div id="chargeResult" class="result-box" style="display:none; margin-top:12px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function classifyListing() {
+      const payload = {
+        title: document.getElementById('listingTitle').value,
+        category: document.getElementById('listingCategory').value,
+        transport_arranged: document.getElementById('chkTransport').checked ? 'included_in_price' : 'none',
+        transport_operator: document.getElementById('chkOwnCar').checked ? 'organiser_own_vehicle' : (document.getElementById('chkTransport').checked ? 'licensed_transport_company' : 'none'),
+        accommodation_included: document.getElementById('chkAccommodation').checked,
+        overnight: document.getElementById('chkAccommodation').checked,
+        heritage_or_protected_site: document.getElementById('chkHeritage').checked,
+        has_hygiene_cert: document.getElementById('chkHygiene').checked,
+        services_bundled: document.getElementById('chkTransport').checked ? ['transport', 'guide'] : ['instruction']
+      };
+
+      const res = await fetch('/api/classify', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+
+      const box = document.getElementById('classificationResult');
+      box.style.display = 'block';
+      box.innerHTML = `
+        <span class="badge-pill badge-${data.pathway_code}">${data.pathway_code} — ${data.name}</span>
+        <div><strong>Hukuki Sözleşen Taraf:</strong> ${data.contracting_party}</div>
+        <div><strong>Görünecek Rozet:</strong> ${data.badge}</div>
+        <div><strong>Zorunlu Sigorta:</strong> ${data.requires_insurance ? 'EVET (Paket Tur Sigortası)' : 'HAYIR'}</div>
+        <div style="margin-top:6px; color:#4B5563;"><strong>Gerekçeler:</strong> ${data.reasons.join(', ')}</div>
+      `;
+
+      document.getElementById('splitPathway').value = ['P0','P1','P2'].includes(data.pathway_code) ? data.pathway_code : 'P0';
+    }
+
+    async function calculateSplit() {
+      const gross = parseFloat(document.getElementById('splitGross').value) || 1000;
+      const pathway = document.getElementById('splitPathway').value;
+
+      const res = await fetch('/api/calculate-split', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ gross_amount: gross, pathway_code: pathway })
+      });
+      const data = await res.json();
+
+      const box = document.getElementById('splitResult');
+      box.style.display = 'block';
+      box.innerHTML = `
+        <div class="split-row"><span>Brüt Tutar (GMV):</span> <strong>${data.gross_amount.toFixed(2)} TL</strong></div>
+        <div class="split-row"><span>LORAKS Komisyonu (%${(data.commission_rate*100).toFixed(0)}):</span> <strong>${data.splits.platform_take_rate.gross_amount.toFixed(2)} TL (KDV Dahil)</strong></div>
+        <div class="split-row" style="color:#B45309;"><span>7524 Sayılı %1 Stopaj (GİB):</span> <strong>-${data.splits.tax_withholding_gib.amount.toFixed(2)} TL</strong></div>
+        <div class="split-row" style="color:#15803D;"><span>Host Net Hak Ediş:</span> <strong>${data.splits.supplier_net_payout.net_amount.toFixed(2)} TL</strong></div>
+        <div style="margin-top:8px; font-size:11px; color:#6B7280;">
+          <strong>TFRS 15 B2B Faturası:</strong> LORAKS Teknoloji → Acente/Host (${data.splits.platform_take_rate.gross_amount.toFixed(2)} TL)<br>
+          <strong>TFRS 15 B2C Faturası:</strong> ${data.invoicing.b2c_customer_invoice.issuer} → Gezgin (${data.gross_amount.toFixed(2)} TL)
+        </div>
+      `;
+
+      document.getElementById('dispGross').innerText = `${gross.toFixed(2)} TL`;
+    }
+
+    function validateCheckout() {
+      const mss = document.getElementById('chkMss').checked;
+      const pts = document.getElementById('chkPts').checked;
+      const btn = document.getElementById('btnPay');
+      if (mss && pts) {
+        btn.disabled = false;
+        btn.style.background = '#1A432E';
+      } else {
+        btn.disabled = true;
+        btn.style.background = '#9CA3AF';
+      }
+    }
+
+    async function executeMockCharge() {
+      const gross = parseFloat(document.getElementById('splitGross').value) || 2000;
+      const res = await fetch('/api/charge', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          booking_id: 'BK-' + Date.now(),
+          gross_amount: gross,
+          pathway_code: 'P2',
+          idempotency_key: 'idemp_' + Date.now()
+        })
+      });
+      const data = await res.json();
+      const box = document.getElementById('chargeResult');
+      box.style.display = 'block';
+      box.innerHTML = `
+        <div style="color:#15803D; font-weight:700;">✅ Rezervasyon ve Ödeme Başarılı!</div>
+        <div style="font-size:12px; margin-top:4px;">
+          <strong>Ödeme ID:</strong> ${data.data.payment_id}<br>
+          <strong>Durum:</strong> ${data.data.status} (TCMB Lisanslı Havuzda Bloke)<br>
+          <strong>Zorunlu Sigorta:</strong> Katılımcı adına poliçe kuyruğa iletildi.<br>
+          <strong>QR Kod:</strong> Girişte taranınca host'a hak ediş salınacaktır.
+        </div>
+      `;
+    }
+
+    // Auto-run first calculation on load
+    window.onload = function() {
+      calculateSplit();
+    };
+  </script>
+</body>
+</html>
