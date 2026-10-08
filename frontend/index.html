@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LORAKS TravelTech Platform — Canlı Uyum & FinTech Kokpiti (v3.2)</title>
+  <style>
+    :root {
+      --primary: #1A432E;
+      --primary-light: #2D5E43;
+      --bg: #FDFCF8;
+      --surface: #FFFFFF;
+      --text: #1F2937;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+      --accent: #D97706;
+      --terracotta: #C86D51;
+      --sage: #8FAF8C;
+      --success: #10B981;
+      --danger: #EF4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    .brand h1 { color: var(--primary); font-size: 26px; font-weight: 800; font-family: serif; }
+    .brand p { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .tursab-badge {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-align: right;
+    }
+    .tursab-badge div:first-child { font-size: 10px; font-weight: 700; opacity: 0.8; }
+    .tursab-badge div:last-child { font-size: 15px; font-weight: 900; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .card h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 4px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      background: #FAFAFA;
+      font-family: inherit;
+    }
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .btn {
+      width: 100%;
+      padding: 11px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn-terracotta { background: var(--terracotta); }
+    .result-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      background: #F9FAFB;
+      border: 1px solid var(--border);
+    }
+    .badge-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .badge-P0 { background: #E0F2FE; color: #0369A1; }
+    .badge-P1 { background: #DCFCE7; color: #15803D; }
+    .badge-P2 { background: #FEF3C7; color: #B45309; }
+    .badge-P3 { background: #FEE2E2; color: #B91C1C; }
+    .badge-P4 { background: #111827; color: #F9FAFB; }
+    .split-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 13px;
+    }
+    .split-row strong { color: var(--primary); }
+    .tag-bubble {
+      display: inline-block;
+      font-size: 11px;
+      background: #E5E7EB;
+      color: #374151;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="brand">
+      <h1>LORAKS TravelTech Platform</h1>
+      <p>Evrensel Deneyim Pazaryeri · Compliance Engine · İkili Kurumsal Mimari (v3.2 Gold Release)</p>
+    </div>
+    <div class="tursab-badge">
+      <div>HUKUKİ KALKAN & LİSANS</div>
+      <div>TÜRSAB No: 16978 / 2387</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- PANEL 1: PATHWAY CLASSIFICATION ENGINE -->
+    <div class="card">
+      <h2>🧭 1. Akıllı Pathway Teşhis Motoru (P0-P4)</h2>
+      <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
+        İlanın özelliklerini seçin; motor ilanı anlık olarak doğru yasal patikaya yönlendirsin.
+      </p>
+
+      <div class="form-group">
+        <label>Deneyim Başlığı:</label>
+        <input type="text" id="listingTitle" value="Bodrum Günbatımı Tekne Yoga & Tadım">
+      </div>
+
+      <div class="form-group">
+        <label>Kategori:</label>
+        <select id="listingCategory">
+          <option value="workshop">Atölye (Workshop)</option>
+          <option value="food">Gastronomi / Şef Tadımı</option>
+          <option value="outdoor" selected>Doğa / Outdoor / Tekne</option>
+          <option value="camp">Doğa Kampı / Geceleme</option>
+          <option value="cultural">Kültür / Tarih</option>
+          <option value="retreat">Kaçamak / İnziva</option>
+        </select>
+      </div>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="chkTransport" checked>
+        <span>Ulaşım / Transfer dahil</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="chkAccommodation">
+        <span>Konaklama / Geceleme dahil (Senaryo B Kampı)</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="chkHeritage">
+        <span>Tarihi Ören Yeri (Rehber Şartı)</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="chkOwnCar">
+        <span>Host kendi şahsi aracıyla taşıyor (P4 Korsan Testi)</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="chkHygiene" checked>
+        <span>Hijyen / Uzmanlık Belgesi var</span>
+      </label>
+
+      <button class="btn" onclick="classifyListing()">İlanı Sınıflandır (Classify)</button>
+      <div id="classificationResult" class="result-box" style="display:none;"></div>
+    </div>
+
+    <!-- PANEL 2: FINTECH SPLIT PAYMENT & 1% STOPAJ -->
+    <div class="card">
+      <h2>💳 2. FinTech Split Payment & Stopaj Hesaplayıcı</h2>
+      <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
+        6493 Sayılı Kanun (PSP Split) ve 7524 Sayılı Kanun (%1 stopaj) anlık hesaplama:
+      </p>
+
+      <div class="form-group">
+        <label>Brüt Rezervasyon Tutarı (TL):</label>
+        <input type="number" id="splitGross" value="2000" step="50">
+      </div>
+
+      <div class="form-group">
+        <label>Aktif Pathway Kodu:</label>
+        <select id="splitPathway">
+          <option value="P0">P0 — Doğrudan Atölye (%15 Komisyon)</option>
+          <option value="P1">P1 — Onaylı Deneyim (%15 Komisyon)</option>
+          <option value="P2" selected>P2 — Regüle Seyahat (%12 Komisyon)</option>
+        </select>
+      </div>
+
+      <button class="btn" onclick="calculateSplit()">Fon Dağılımını Hesapla</button>
+      <div id="splitResult" class="result-box" style="display:none;"></div>
+    </div>
+
+    <!-- PANEL 3: TÜRSAB COMPLIANT CHECKOUT PREVIEW -->
+    <div class="card">
+      <h2>🛡️ 3. Canlı Checkout & Güvence Kalkanı</h2>
+      <div id="checkoutBox">
+        <div style="background:#FFF; border:1px solid #D1D5DB; border-radius:8px; padding:12px; margin-bottom:12px;">
+          <div style="font-size:11px; color:#6B7280; font-weight:700;">T.C. KÜLTÜR VE TURİZM BAKANLIĞI DENETİMİ</div>
+          <div style="font-size:13px; font-weight:700; color:#1A432E;">LORAKS Seyahat Acentası A.Ş. (TÜRSAB No: 16978)</div>
+          <div style="font-size:11px; color:#4B5563;">Zorunlu Mesleki Sorumluluk Sigortası teminatı altındadır.</div>
+        </div>
+
+        <div style="background:#F3F4F6; padding:10px 12px; border-radius:8px; display:flex; justify-content:space-between; margin-bottom:12px;">
+          <span>Toplam Ödenecek:</span>
+          <strong id="dispGross" style="color:#1A432E; font-size:16px;">2.000,00 TL</strong>
+        </div>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="chkMss" onchange="validateCheckout()">
+          <span style="font-size:12px;"><strong>Mesafeli Satış Sözleşmesi</strong>'ni ve cayma hakkı istisnasını onaylıyorum.</span>
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="chkPts" onchange="validateCheckout()">
+          <span style="font-size:12px;"><strong>Paket Tur Sözleşmesi</strong> şartlarını ve sigorta kapsamını kabul ediyorum.</span>
+        </label>
+
+        <button id="btnPay" class="btn" style="background:#9CA3AF; margin-top:8px;" disabled onclick="executeMockCharge()">
+          Ödemeyi Tamamla
+        </button>
+        <div id="chargeResult" class="result-box" style="display:none; margin-top:12px;"></div>
+      </div>
+    </div>
+
+    <!-- PANEL 4: REGTECH NLP & SOHBET MASKELEME (Senaryo C) -->
+    <div class="card">
+      <h2>🔍 4. RegTech NLP & Sohbet Maskeleme (Senaryo C)</h2>
+      <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
+        İlan metninde gizli P2 paket tur ve elden ödeme taraması; sohbette IBAN/telefon maskeleme:
+      </p>
+
+      <div class="form-group">
+        <label>Sohbet Mesajı Testi (IBAN / Telefon / Elden Nakit):</label>
+        <textarea id="chatInput" rows="2">Merhaba, ücretin kalanını TR33 0006 1005 1978 6457 8410 01 nolu IBAN'a veya 0532 111 22 33 noya elden nakit verin.</textarea>
+      </div>
+
+      <button class="btn btn-terracotta" onclick="sanitizeChatMessage()">Mesajı Filtrele & Maskele</button>
+      <div id="chatResult" class="result-box" style="display:none;"></div>
+
+      <div class="form-group" style="margin-top:14px;">
+        <label>İlan Metni RegTech Taraması:</label>
+        <textarea id="listingScanInput" rows="2">Atölye ücreti 500 TL olup servis kalkış noktası Kadıköy'dür. Ekstra transfer ücreti şoföre verilecektir.</textarea>
+      </div>
+      <button class="btn" onclick="auditListingText()">İlan Metnini Tara (Scan Listing)</button>
+      <div id="listingScanResult" class="result-box" style="display:none;"></div>
+    </div>
+
+    <!-- PANEL 5: SAFE HARBOR DENETİMLERİ (Senaryo A, B, F) -->
+    <div class="card">
+      <h2>⚖️ 5. Safe Harbor Denetimleri (TUREB & TAPDK)</h2>
+      <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
+        Senaryo A (Balat Gezisi / TUREB 6326), Senaryo B (Konvoy Kampı), Senaryo F (Supper Club):
+      </p>
+
+      <div class="form-group">
+        <label>Mekan Ortamı:</label>
+        <select id="safeVenue">
+          <option value="studio">Ticari Stüdyo / Atölye</option>
+          <option value="home">Ev / Konut Ortamı (Supper Club)</option>
+          <option value="outdoor">Açık Hava / Doğa Rotası</option>
+        </select>
+      </div>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="safeAlcohol">
+        <span>Alkollü içki servisi yer alıyor (TAPDK 4733 S.K.)</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="safeAllergen">
+        <span>Gıda Alerjen & Sağlık Beyan Formu onaylı</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="safeMultiStop">
+        <span>Çok duraklı açık alan gezisi (TUREB 6326 S.K.)</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="safeNonGuiding">
+        <span>'Rehberlik yapılmayacaktır, teknik atölyedir' taahhüdü onaylı</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="safeCamp">
+        <span>Geceleme / Kamp içeriyor (1618 S.K. Zorunlu P2 Kilidi)</span>
+      </label>
+
+      <button class="btn" onclick="checkSafeHarbor()">Safe Harbor Kurallarını Doğrula</button>
+      <div id="safeHarborResult" class="result-box" style="display:none;"></div>
+    </div>
+
+    <!-- PANEL 6: GVK m.9 & KVK m.13 KONSOLU (Senaryo D & Transfer Fiyatlandırması) -->
+    <div class="card">
+      <h2>📊 6. GVK m.9 Tavan & KVK m.13 Fatura Konsolu</h2>
+      
+      <div style="margin-bottom:14px; padding-bottom:12px; border-bottom:1px dashed var(--border);">
+        <strong style="font-size:13px; color:var(--primary); display:block; margin-bottom:6px;">
+          GVK m.9 Esnaf Muafiyeti Hasılat Sayacı (Senaryo D)
+        </strong>
+        <div class="form-group">
+          <label>Hostun Yıllık Kümülatif Cirosu (TL):</label>
+          <input type="number" id="gvkCumulative" value="850000" step="50000">
+        </div>
+        <div class="form-group">
+          <label>Yeni Rezervasyon Tutarı (TL):</label>
+          <input type="number" id="gvkNewBooking" value="50000" step="10000">
+        </div>
+        <button class="btn" onclick="checkGvk9Cap()">GVK m.9 Limitini Denetle</button>
+        <div id="gvkResult" class="result-box" style="display:none;"></div>
+      </div>
+
+      <div>
+        <strong style="font-size:13px; color:var(--primary); display:block; margin-bottom:6px;">
+          KVK m.13 Şirketler Arası Hizmet Faturası (Teknoloji → Acente)
+        </strong>
+        <div class="form-group">
+          <label>Aylık Paylaşılan Sunucu/Personel Maliyeti (TL):</label>
+          <input type="number" id="sharedCost" value="50000" step="5000">
+        </div>
+        <button class="btn btn-terracotta" onclick="calcIntercompany()">KVK m.13 Emsal Fatura Hesapla (%10 Cost-Plus)</button>
+        <div id="interResult" class="result-box" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function classifyListing() {
+      const payload = {
+        title: document.getElementById('listingTitle').value,
+        category: document.getElementById('listingCategory').value,
+        transport_arranged: document.getElementById('chkTransport').checked ? 'included_in_price' : 'none',
+        transport_operator: document.getElementById('chkOwnCar').checked ? 'organiser_own_vehicle' : (document.getElementById('chkTransport').checked ? 'licensed_transport_company' : 'none'),
+        accommodation_included: document.getElementById('chkAccommodation').checked,
+        overnight: document.getElementById('chkAccommodation').checked,
+        heritage_or_protected_site: document.getElementById('chkHeritage').checked,
+        has_hygiene_cert: document.getElementById('chkHygiene').checked,
+        services_bundled: document.getElementById('chkTransport').checked ? ['transport', 'guide'] : ['instruction']
+      };
+
+      const res = await fetch('/api/classify', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+
+      const box = document.getElementById('classificationResult');
+      box.style.display = 'block';
+      box.innerHTML = `
+        <span class="badge-pill badge-${data.pathway_code}">${data.pathway_code} — ${data.name}</span>
+        <div><strong>Hukuki Sözleşen Taraf:</strong> ${data.contracting_party}</div>
+        <div><strong>Görünecek Rozet:</strong> ${data.badge}</div>
+        <div><strong>Zorunlu Sigorta:</strong> ${data.requires_insurance ? 'EVET (Paket Tur Sigortası)' : 'HAYIR'}</div>
+        <div style="margin-top:6px; color:#4B5563;"><strong>Gerekçeler:</strong> ${data.reasons.join(', ')}</div>
+      `;
+
+      document.getElementById('splitPathway').value = ['P0','P1','P2'].includes(data.pathway_code) ? data.pathway_code : 'P0';
+    }
+
+    async function calculateSplit() {
+      const gross = parseFloat(document.getElementById('splitGross').value) || 1000;
+      const pathway = document.getElementById('splitPathway').value;
+
+      const res = await fetch('/api/calculate-split', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ gross_amount: gross, pathway_code: pathway })
+      });
+      const data = await res.json();
+
+      const box = document.getElementById('splitResult');
+      box.style.display = 'block';
+      box.innerHTML = `
+        <div class="split-row"><span>Brüt Tutar (GMV):</span> <strong>${data.gross_amount.toFixed(2)} TL</strong></div>
+        <div class="split-row"><span>LORAKS Komisyonu (%${(data.commission_rate*100).toFixed(0)}):</span> <strong>${data.splits.platform_take_rate.gross_amount.toFixed(2)} TL (KDV Dahil)</strong></div>
+        <div class="split-row" style="color:#B45309;"><span>7524 Sayılı %1 Stopaj (GİB):</span> <strong>-${data.splits.tax_withholding_gib.amount.toFixed(2)} TL</strong></div>
+        <div class="split-row" style="color:#15803D;"><span>Host Net Hak Ediş:</span> <strong>${data.splits.supplier_net_payout.net_amount.toFixed(2)} TL</strong></div>
+        <div style="margin-top:8px; font-size:11px; color:#6B7280;">
+          <strong>TFRS 15 B2B Faturası:</strong> LORAKS Teknoloji → Acente/Host (${data.splits.platform_take_rate.gross_amount.toFixed(2)} TL)<br>
+          <strong>TFRS 15 B2C Faturası:</strong> ${data.invoicing.b2c_customer_invoice.issuer} → Gezgin (${data.gross_amount.toFixed(2)} TL)
+        </div>
+      `;
+
+      document.getElementById('dispGross').innerText = `${gross.toFixed(2)} TL`;
+    }
+
+    function validateCheckout() {
+      const mss = document.getElementById('chkMss').checked;
+      const pts = document.getElementById('chkPts').checked;
+      const btn = document.getElementById('btnPay');
+      if (mss && pts) {
+        btn.disabled = false;
+        btn.style.background = '#1A432E';
+      } else {
+        btn.disabled = true;
+        btn.style.background = '#9CA3AF';
+      }
+    }
+
+    async function executeMockCharge() {
+      const gross = parseFloat(document.getElementById('splitGross').value) || 2000;
+      const res = await fetch('/api/charge', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          booking_id: 'BK-' + Date.now(),
+          gross_amount: gross,
+          pathway_code: 'P2',
+          idempotency_key: 'idemp_' + Date.now()
+        })
+      });
+      const data = await res.json();
+      const box = document.getElementById('chargeResult');
+      box.style.display = 'block';
+      box.innerHTML = `
+        <div style="color:#15803D; font-weight:700;">✅ Rezervasyon ve Ödeme Başarılı!</div>
+        <div style="font-size:12px; margin-top:4px;">
+          <strong>Ödeme ID:</strong> ${data.data.payment_id}<br>
+          <strong>Durum:</strong> ${data.data.status} (TCMB Lisanslı Havuzda Bloke)<br>
+          <strong>Zorunlu Sigorta:</strong> Katılımcı adına poliçe kuyruğa iletildi.<br>
+          <strong>QR Kod:</strong> Girişte taranınca T+1'de hak ediş salınacaktır.
+        </div>
+      `;
+    }
+
+    async function sanitizeChatMessage() {
+      const msg = document.getElementById('chatInput').value;
+      const res = await fetch('/api/chat-sanitize', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ message: msg })
+      });
+      const data = await res.json();
+      const box = document.getElementById('chatResult');
+      box.style.display = 'block';
+      box.innerHTML = `
+        <div style="font-weight:700; color:${data.violation_detected ? '#B45309' : '#15803D'};">
+          ${data.violation_detected ? '⚠️ Kural İhlali Tespit Edildi ve Maskelendi!' : '✅ Güvenli Mesaj'}
+        </div>
+        <div style="margin-top:6px; font-size:12px; background:#FFF; padding:8px; border-radius:6px; border:1px solid #E5E7EB;">
+          <strong>Maskelenmiş Mesaj:</strong><br>${data.sanitized_message}
+        </div>
+        ${data.reasons.length ? `<div style="font-size:11px; color:#B45309; margin-top:4px;">Nedenler: ${data.reasons.join(', ')}</div>` : ''}
+      `;
+    }
+
+    async function auditListingText() {
+      const text = document.getElementById('listingScanInput').value;
+      const res = await fetch('/api/audit-listing', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ listing_text: text })
+      });
+      const data = await res.json();
+      const box = document.getElementById('listingScanResult');
+      box.style.display = 'block';
+      box.innerHTML = `
+        <div style="font-weight:700; color:${data.compliance_status === 'PASSED' ? '#15803D' : '#DC2626'};">
+          Durum: ${data.compliance_status}
+        </div>
+        <div style="font-size:12px; margin-top:4px;">
+          <strong>Gizli P2 Maskeleme:</strong> ${data.p2_masking_detected ? 'EVET ⚠️ (Karantina)' : 'YOK ✅'}<br>
+          <strong>Platform Dışı Ödeme:</strong> ${data.off_platform_audit.detected ? 'EVET (' + data.off_platform_audit.matched_keywords.join(', ') + ')' : 'YOK ✅'}
+        </div>
+      `;
+    }
+
+    async function checkSafeHarbor() {
+      const payload = {
+        venue_type: document.getElementById('safeVenue').value,
+        alcohol_served: document.getElementById('safeAlcohol').checked,
+        allergen_declaration_accepted: document.getElementById('safeAllergen').checked,
+        is_multi_stop: document.getElementById('safeMultiStop').checked,
+        non_guiding_warranty_accepted: document.getElementById('safeNonGuiding').checked,
+        overnight: document.getElementById('safeCamp').checked,
+        category: document.getElementById('safeVenue').value === 'home' ? 'food' : 'workshop'
+      };
+
+      const res = await fetch('/api/safe-harbor-check', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      const box = document.getElementById('safeHarborResult');
+      box.style.display = 'block';
+      if (res.status === 200) {
+        box.innerHTML = `
+          <div style="color:#15803D; font-weight:700;">✅ Safe Harbor Şartları Sağlandı!</div>
+          <div style="font-size:12px; margin-top:4px;">
+            <strong>TUREB Durumu:</strong> ${data.turing_audit.status}<br>
+            <strong>Geceleme P2 Kilidi:</strong> ${data.overnight_p2_lock ? 'EVET (Acente Şemsiyesi)' : 'HAYIR'}<br>
+            <strong>TAPDK Kontrolü:</strong> ${data.supper_club_audit.tapdk_cleared ? 'ONAYLI' : 'RED'}
+          </div>
+        `;
+      } else {
+        box.innerHTML = `
+          <div style="color:#DC2626; font-weight:700;">❌ Mevzuat İhlali:</div>
+          <div style="font-size:12px; margin-top:4px; color:#991B1B;">${data.message}</div>
+        `;
+      }
+    }
+
+    async function checkGvk9Cap() {
+      const cumulative = parseFloat(document.getElementById('gvkCumulative').value) || 0;
+      const newBooking = parseFloat(document.getElementById('gvkNewBooking').value) || 0;
+      const res = await fetch('/api/gvk9-check', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ cumulative_annual_gmv: cumulative, new_booking_amount: newBooking })
+      });
+      const data = await res.json();
+      const box = document.getElementById('gvkResult');
+      box.style.display = 'block';
+      if (res.status === 200) {
+        box.innerHTML = `
+          <div style="color:${data.status === 'WITHIN_LIMIT' ? '#15803D' : '#B45309'}; font-weight:700;">
+            ${data.status === 'WITHIN_LIMIT' ? '✅ Limit Dahilinde' : '⚠️ Limit Uyarısı (%' + data.ratio_used + ')'}
+          </div>
+          <div style="font-size:12px; margin-top:4px;">
+            <strong>Kalan Kota:</strong> ${data.remaining_quota.toLocaleString('tr-TR')} TL<br>
+            ${data.warning_message ? `<span style="color:#B45309;">${data.warning_message}</span>` : ''}
+          </div>
+        `;
+      } else {
+        box.innerHTML = `
+          <div style="color:#DC2626; font-weight:700;">❌ Rezervasyon Engellendi:</div>
+          <div style="font-size:12px; margin-top:4px; color:#991B1B;">${data.message}</div>
+        `;
+      }
+    }
+
+    async function calcIntercompany() {
+      const costs = parseFloat(document.getElementById('sharedCost').value) || 50000;
+      const res = await fetch('/api/intercompany-invoice', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ allocated_shared_costs: costs, p2_gross_turnover: 500000, method: 'COST_PLUS' })
+      });
+      const data = await res.json();
+      const box = document.getElementById('interResult');
+      box.style.display = 'block';
+      box.innerHTML = `
+        <div style="font-size:12px;">
+          <strong>Düzenleyen:</strong> ${data.issuer}<br>
+          <strong>Muhatap:</strong> ${data.recipient}<br>
+          <strong>Net Matrah (%10 Kâr):</strong> ${data.base_amount_net.toFixed(2)} TL<br>
+          <strong>%20 KDV:</strong> ${data.vat_amount.toFixed(2)} TL<br>
+          <strong>Toplam Fatura:</strong> <strong style="color:#1A432E;">${data.total_invoice_amount.toFixed(2)} TL</strong>
+        </div>
+      `;
+    }
+
+    // Auto-run first calculation on load
+    window.onload = function() {
+      calculateSplit();
+    };
+  </script>
+</body>
+</html>
