@@ -1,30 +1,30 @@
 # LORAKS TRAVELTECH — PROJE YÖNETİŞİM, KURALLAR VE ANLAŞMA PROTOKOLÜ (PROJECT CONSTITUTION)
-> **Bu dosya, Antigravity ve tüm AI asistanları için HER YENİ SOHBET PENCERESİNDE zorunlu olarak yüklenen ANA ANAYASADIR.**  
-> Projede çalışan hiçbir model bu kuralların dışına çıkamaz, eski sürümleri referans alamaz ve kafasına göre değişiklik yapamaz.
+> **Bu dosya, Antigravity ve tüm AI asistanları için HER YENİ SOHBET PENCERESİNDE zorunlu olarak yüklenen TEK ANA ANAYASADIR.**  
+> Projede çalışan hiçbir model bu kuralların dışına çıkamaz, eski sürümleri referans alamaz ve yüzeysel sunum slaytlarını anayasa zannedemez!
 
 ---
 
 ## 🏛️ 1. TEK GERÇEK KAYNAK İLKESİ (SINGLE SOURCE OF TRUTH)
 * **Aktif ve Bağlayıcı Master Blueprint:**  
-  👉 [`docs/17_loraks_traveltech_nihai_birlesik_master_blueprint_v5_4.md`](file:///Users/mehmetbagbozan/Documents/antigravity/cool-noether/docs/17_loraks_traveltech_nihai_birlesik_master_blueprint_v5_4.md) (`v5.4 Unified Definitive Edition`)
-* **Aktif ve Bağlayıcı Sunum Destesi:**  
-  👉 [`docs/18_loraks_kurumsal_tanitim_ve_sunum_destesi_revize.md`](file:///Users/mehmetbagbozan/Documents/antigravity/cool-noether/docs/18_loraks_kurumsal_tanitim_ve_sunum_destesi_revize.md) (20 Slaytlık Güncel Deste)
+  👉 [`docs/17_loraks_traveltech_nihai_birlesik_master_blueprint_v5_4.md`](file:///Users/mehmetbagbozan/Documents/antigravity/cool-noether/docs/17_loraks_traveltech_nihai_birlesik_master_blueprint_v5_4.md) (`v5.4 Unified Definitive Master Edition`)
+* **Sunum Slaytları Kuralı:**  
+  Sunum desteleri veya slayt metinleri (örneğin docs/18 veya harici yüklenen slaytlar) **ASLA** projenin teknik, mali veya yasal anayasası olarak baz alınamaz. Projenin omurgası, vergi motoru, yasal zırhları ve mimarisi yalnızca Master Blueprint (v5.4) içerisindedir.
 * **Geçersiz / Arşivlenmiş Sürümler:**  
   `v2.0`, `v5.0`, `v5.1`, `v5.2` ve `v5.3` gibi önceki sürümler yalnızca tarihsel referanstır. Herhangi bir planlama, kodlama veya strateji çalışmasında **ASLA** bu eski sürümler ana metin olarak baz alınamaz.
 
 ---
 
-## 👥 2. RESMİ YÖNETİM KURULU VE UNVANLAR (DEĞİŞTİRİLEMEZ)
-Resmi sunum, Ticaret Sicil ve kurumsal yapı gereği liderlik matrisi kesindir. Başka isimler veya hayali unvanlar türetilemez:
+## 👥 2. RESMİ YÖNETİM VE LİDERLİK MATRİSİ (DEĞİŞTİRİLEMEZ)
+Resmi mimari, Ticaret Sicil ve kurumsal yapı gereği liderlik matrisi kesindir. Harici sunumlardan veya eski taslaklardan farklı unvanlar türetilemez:
 
-1. **AYŞEGÜL DENİZLİ:** Yönetim Kurulu Başkanı  
-   *(Şirket vizyonu, deneyim standartları, topluluk mimarisi, kürasyon kalitesi)*
-2. **GÖKHAN EKRE:** Genel Müdür  
-   *(Şirket icraatı, operasyonel mükemmellik, saha lojistiği, tedarikçi ve acente ağı)*
-3. **ERAY ERDEMİR:** Finans Direktörü (CFO)  
-   *(Finansal yönetim, bütçe ve sermaye planlaması, B2B gelir modelleri, kârlılık) — NOT: "Ray" ve "Eray" ayrı kişiler DEĞİLDİR, tek ve resmi kişi Eray Erdemir'dir.*
-4. **MEHMET BAĞBOZAN:** Kurucu Ortak & Strateji, Teknoloji ve TravelTech Lideri  
-   *(T.C. Kültür ve Turizm Bakanlığı Seyahat Acentaları Enformasyon Memurluğu Belge No: #2387 — A Grubu acente yasal sorumlu müdürlük şartını sağlar; yapay zeka, RegTech/FinTech mimarisi ve platform teknolojilerini yönetir).*
+1. **MEHMET BAĞBOZAN:** Kurucu Ortak & Yönetim Kurulu Başkanı / RegTech & FinTech Lideri  
+   *(T.C. Kültür ve Turizm Bakanlığı Seyahat Acentaları Enformasyon Memurluğu Belge No: #2387 — A Grubu acente yasal sorumlu müdürlük şartını sağlar; yapay zeka, RegTech/FinTech mimarisi, platform teknolojilerini ve şirket stratejisini yönetir).*
+2. **AYŞEGÜL DENİZLİ:** Kurucu Ortak & Stratejik Ürün Mimarı  
+   *(Şirket vizyonu, deneyim standartları, kürasyon kalitesi, "Modern Anadolu Ev Sahipliği" konsepti, Creator Academy ve zanaatkar topluluk mimarisinin lideri).*
+3. **GÖKHAN EKRE:** Kurucu Ortak & Operasyon Direktörü (COO)  
+   *(Saha lojistiği, D2 lisanslı taşıyıcı ağı yönetimi, TUREB kokartlı rehber gig-board koordinasyonu ve operasyonel güvenlik).*
+4. **RAY ERDEMİR:** Kurucu Ortak & B2B Büyüme Direktörü  
+   *(LORAKS for Business kurumsal İK satışları, şirket içi wellbeing paketleri, Kapsam 3 karbon raporlaması ve kurumsal ortaklıklar).*
 
 ---
 
@@ -46,7 +46,7 @@ Resmi sunum, Ticaret Sicil ve kurumsal yapı gereği liderlik matrisi kesindir. 
 Kullanıcı yeni veya farklı bir sohbet penceresinde değişiklik istediğinde asistan şu adımları **istisnasız** takip etmek zorundadır:
 
 1. **Önce Oku ve Karşılaştır (Check Before Writing):**  
-   Kafana göre metin üretme. Önce `docs/17_...` ve `docs/18_...` dosyalarını oku. Değişikliğin mevcut sistemle çelişip çelişmediğini denetle.
+   Kafana göre metin üretme. Önce `docs/17_...` dosyasını oku. Değişikliğin mevcut mimariyle çelişip çelişmediğini denetle.
 2. **Bütünlüğü Koru:**  
    Bir bölüm değiştiğinde diğer bölümlerdeki bağıntıları koparma.
 3. **Test Doğrulaması:**  

@@ -9,7 +9,7 @@
    *(İTO Sicil: `1144533` · MERSİS: `0609146560400001` · VKN: `6091465604`, Zeytinburnu V.D. — Ticaret Sicili Gazetesi: Sayı 11599 — Tescilli Seyahat Acentesi ve Kurumsal Çatı Şirketi)*  
 2. **Loraks TravelTech A.Ş.**  
    *(6563 S.K. Kapsamında ETAHS / Teknoloji, Yazılım ve Pazar Yeri Şirketi — Genel Ticari Nizam / Teknopark Dışı Anonim Şirket)*  
-3. **Yönetim Kurulu Başkanı:** Ayşegül Denizli | **Teknoloji, Strateji ve Lisans Sorumlusu:** Mehmet Bağbozan  
+3. **Yönetim Kurulu Başkanı / Lisans Sorumlusu:** Mehmet Bağbozan  
    *(T.C. Kültür ve Turizm Bakanlığı Seyahat Acentaları Enformasyon Memurluğu Başarı Belge No: `2387`)*
 
 ---
@@ -524,14 +524,14 @@ CREATE TABLE admin_audit_logs (
 
 # BÖLÜM 15: KURUCU YÖNETİŞİMİ VE LİDERLİK YETKİNLİK MATRİSİ
 
-* **Ayşegül Denizli (Kurucu Ortak & Yönetim Kurulu Başkanı):**  
-  Şirket vizyonu, yönetim kurulu liderliği, deneyim standartları, kürasyon kalitesi, "Modern Anadolu Ev Sahipliği" konsepti ve zanaatkar topluluk mimarisinin lideridir.
-* **Gökhan Ekre (Kurucu Ortak & Genel Müdür / Operasyon Lideri):**  
-  Şirket genel yönetimi, saha lojistiği, operasyon altyapısı, lisanslı tedarikçi ve rehber koordinasyonu ile operasyonel mükemmellikten sorumludur.
-* **Eray Erdemir (Kurucu Ortak & Finans Direktörü / CFO):**  
-  Şirket finansal yönetimi, bütçe ve sermaye planlaması, kurumsal B2B gelir modelleri, mali koordinasyon ve sürdürülebilir kârlılık stratejilerini yönetir.
-* **Mehmet Bağbozan (Kurucu Ortak & Strateji, Teknoloji ve TravelTech Lideri):**  
-  T.C. Kültür ve Turizm Bakanlığı Seyahat Acentaları Enformasyon Memurluğu Belgesi (No: **2387**) sahibidir. A Grubu acente yasal sorumlu müdürlük şartını doğrudan karşılar. Şirketin yapay zeka, RegTech/FinTech mimarisi, platform teknolojileri ve yasal uyum omurgasını yönetir.
+* **Mehmet Bağbozan (Kurucu Ortak & Yönetim Kurulu Başkanı / RegTech & FinTech Lideri):**  
+  T.C. Kültür ve Turizm Bakanlığı Seyahat Acentaları Enformasyon Memurluğu Belgesi (No: **2387**) sahibidir. A Grubu acente yasal sorumlu müdürlük şartını doğrudan karşılar. Şirket stratejisini, vergi mimarisini, platform teknolojilerini ve kurumsal uyumu yönetir.
+* **Ayşegül Denizli (Kurucu Ortak & Stratejik Ürün Mimarı):**  
+  Deneyim standartları, kürasyon kalitesi, "Modern Anadolu Ev Sahipliği" konsepti, Creator Academy içerikleri ve zanaatkar topluluk mimarisinin lideridir.
+* **Gökhan Ekre (Kurucu Ortak & Operasyon Direktörü / COO):**  
+  Saha lojistiği, D2 lisanslı taşıyıcı ağı yönetimi, TUREB kokartlı rehber gig-board koordinasyonu ve operasyonel güvenlikten sorumludur.
+* **Ray Erdemir (Kurucu Ortak & B2B Büyüme Direktörü):**  
+  *LORAKS for Business* kurumsal İK satışları, şirket içi wellbeing paketleri, Kapsam 3 karbon raporlaması ve kurumsal ortaklıkları yönetir.
 
 ---
 
