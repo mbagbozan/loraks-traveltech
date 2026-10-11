@@ -3,7 +3,7 @@
 > *Slogan:* **"Kendine Zaman Tanı"** · *Motto:* **"Bir araya gelmenin değerini bilenler için."**
 
 [![Tests](https://img.shields.io/badge/tests-29%2F29%20passing-10B981)](tests/run_all_tests.py)
-[![Architecture](https://img.shields.io/badge/architecture-Dual--Entity%20v5.3%20%7C%20Gold%20Edition-1A432E)](docs/01_master_plan_v5_1.md)
+[![Architecture](https://img.shields.io/badge/architecture-Dual--Entity%20v5.4%20%7C%20Definitive%20Edition-1A432E)](docs/17_loraks_traveltech_nihai_birlesik_master_blueprint_v5_4.md)
 [![Compliance](https://img.shields.io/badge/compliance-1618%20%7C%206326%20%7C%206563%20%7C%207524%20%7C%20KVK%2013-D97706)](docs/01_master_plan_v5_1.md)
 [![Design](https://img.shields.io/badge/aesthetic-Modern%20Anatolian%20Editorial-8FAF8C)](docs/04_marka_kimligi_ve_gorsel_rehber.md)
 
@@ -115,7 +115,16 @@ cool-noether/
 │   ├── 06_host_os_ve_yan_gelirler.md        # Creator Enablement ve Yan Gelir Kanalları
 │   ├── 07_lovable_ve_ai_studio_kurulum_workflow.md # 5 Adımlı Sıfırdan Web Kurulum Akışı
 │   ├── 08_one_pager_yatirimci_ozeti.md      # Kurucular ve Yatırımcılar İçin Executive Özet
-│   └── 09_yazilim_ve_vergi_test_otomasyonu_dokumani_v3.md # v3.0 Final Production Test Şartnamesi
+│   ├── 09_yazilim_ve_vergi_test_otomasyonu_dokumani_v3.md # v3.0 Final Production Test Şartnamesi
+│   ├── 10_loraks_preview_master_prompt.md   # Editoryal "Zamana Kilitli Nadir Anlar" Arayüz Promptu
+│   ├── 11_creator_academy_ve_kokartli_rehber_agi_raporu.md # Creator Academy & TUREB Rehber Ağı Büyüme Raporu
+│   ├── 12_loraks_traveltech_final_master_blueprint_v5_3.md # Nihai Master Proje Blueprinti (Unified Gold v5.3)
+│   ├── 13_denetim_simulasyonu_ve_stratejik_kiyaslama.md # Resmi Denetim Simülasyonu & BuArada.com Çapraz Teftiş Raporu
+│   ├── 14_loraks_traveltech_uc_uc_analiz_raporu.md # 360° Hukuki, Operasyonel ve Teknik Mimari Analiz Raporu
+│   ├── 15_canliya_gecis_master_yapilacaklar_listesi.md # Canlıya Geçiş Master Yapılacaklar Listesi, Zamanlama & Çapraz Eşleşme Matrisi
+│   ├── 16_surum_evrimi_ve_eksiklik_analiz_raporu.md # Kronolojik Sürüm Evrim Günlüğü ve Master Blueprint Eksiklik/Çelişki Analizi
+│   ├── 17_loraks_traveltech_nihai_birlesik_master_blueprint_v5_4.md # NİHAİ BİRLEŞİK MASTER PROJE BLUEPRINTİ (v5.4 Definitive Edition - Tek Gerçek Kaynak)
+│   └── 18_loraks_kurumsal_tanitim_ve_sunum_destesi_revize.md # LORAKS Kurumsal Tanıtım ve Vizyon Sunumu (20 Slaytlık Güncel Deste)
 ├── src/                                     # ⚙️ Python Uyum, RegTech ve FinTech Çekirdeği
 │   ├── pathway_engine.py                    # P0–P4 Kural ve Teşhis Motoru (Creator Enablement)
 │   ├── payment_engine.py                    # FinTech Split Payment, %1 Stopaj & KVK 13 POS Yalıtımı

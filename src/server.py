@@ -11,6 +11,8 @@ import os
 import sys
 from decimal import Decimal
 
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, PROJECT_ROOT)
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 from pathway_engine import PathwayEngine
 from payment_engine import PaymentEngine

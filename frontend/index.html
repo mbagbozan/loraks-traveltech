@@ -3,387 +3,1181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LORAKS TravelTech Platform — Canlı Uyum & FinTech Kokpiti (v3.2)</title>
+  <title>LORAKS TravelTech — Evrensel Deneyim Pazaryeri & Güven Altyapısı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1A432E;
-      --primary-light: #2D5E43;
       --bg: #FDFCF8;
       --surface: #FFFFFF;
-      --text: #1F2937;
-      --muted: #6B7280;
-      --border: #E5E7EB;
-      --accent: #D97706;
+      --primary: #1A432E;
+      --primary-light: #24593D;
+      --primary-soft: #E8F0EC;
       --terracotta: #C86D51;
+      --terracotta-soft: #F9ECE8;
       --sage: #8FAF8C;
-      --success: #10B981;
-      --danger: #EF4444;
+      --sage-soft: #EEF4EE;
+      --amber: #D97706;
+      --text: #1C1917;
+      --text-muted: #78716C;
+      --border: #E7E5E4;
+      --border-focus: #1A432E;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
       color: var(--text);
+      font-family: var(--font-sans);
       line-height: 1.5;
-      padding: 24px;
+      -webkit-font-smoothing: antialiased;
     }
-    .header {
+
+    /* TOP ANNOUNCEMENT BAR */
+    .top-bar {
+      background: var(--primary);
+      color: #fff;
+      font-size: 12px;
+      padding: 8px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1280px;
-      margin: 0 auto 24px;
-      padding-bottom: 16px;
-      border-bottom: 2px solid var(--border);
+      letter-spacing: 0.02em;
     }
-    .brand h1 { color: var(--primary); font-size: 26px; font-weight: 800; font-family: serif; }
-    .brand p { font-size: 13px; color: var(--muted); margin-top: 2px; }
-    .tursab-badge {
-      background: var(--primary);
+    .top-bar-left { display: flex; align-items: center; gap: 12px; }
+    .badge-live {
+      background: var(--terracotta);
       color: #fff;
-      padding: 8px 16px;
-      border-radius: 8px;
-      text-align: right;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .tursab-badge div:first-child { font-size: 10px; font-weight: 700; opacity: 0.8; }
-    .tursab-badge div:last-child { font-size: 15px; font-weight: 900; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 24px;
+    /* HEADER & NAVBAR */
+    header {
+      background: rgba(253, 252, 248, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
       max-width: 1280px;
       margin: 0 auto;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    }
-    .card h2 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 14px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
     }
-    .form-group { margin-bottom: 12px; }
-    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 4px; }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 13px;
-      background: #FAFAFA;
-      font-family: inherit;
-    }
-    .checkbox-label {
+    .logo-group {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      margin-bottom: 8px;
+      align-items: baseline;
+      gap: 12px;
+      text-decoration: none;
       cursor: pointer;
     }
-    .btn {
+    .logo-text {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+    .logo-tagline {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-host {
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      padding: 9px 18px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-host:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary {
+      background: var(--primary);
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--primary-light);
+    }
+
+    /* SCROLLABLE EPHEMERAL TIMELINE BAR */
+    .timeline-bar {
+      background: #F4F1EA;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+    .timeline-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .timeline-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .timeline-chip {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .timeline-chip:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 56px 24px 36px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--terracotta);
+      background: var(--terracotta-soft);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 900px;
+      margin: 0 auto 16px;
+    }
+    .hero p {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    /* SEARCH CAPSULE */
+    .search-capsule {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      max-width: 860px;
+      margin: 0 auto 48px;
+      padding: 8px 10px 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s;
+    }
+    .search-capsule:focus-within {
+      border-color: var(--primary);
+    }
+    .search-field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 16px;
+      border-right: 1px solid var(--border);
+    }
+    .search-field:last-of-type { border-right: none; }
+    .search-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .search-input {
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: transparent;
       width: 100%;
-      padding: 11px;
+    }
+    .search-btn {
       background: var(--primary);
       color: #fff;
       border: none;
-      border-radius: 8px;
+      padding: 14px 28px;
+      border-radius: 9999px;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 14px;
       cursor: pointer;
-      transition: opacity 0.2s;
+      transition: all 0.2s;
+      white-space: nowrap;
     }
-    .btn:hover { opacity: 0.9; }
-    .btn-terracotta { background: var(--terracotta); }
-    .result-box {
-      margin-top: 14px;
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      background: #F9FAFB;
+    .search-btn:hover { background: var(--primary-light); }
+
+    /* CATEGORY PILLS */
+    .category-pills {
+      max-width: 1280px;
+      margin: 0 auto 32px;
+      padding: 0 24px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .cat-pill {
+      background: #fff;
       border: 1px solid var(--border);
+      padding: 9px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
     }
-    .badge-pill {
-      display: inline-block;
+    .cat-pill:hover, .cat-pill.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* EXPERIENCE GRID */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 28px;
+    }
+
+    /* CARD DESIGN */
+    .card-exp {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .card-exp:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .card-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      background: #E5E7EB;
+      overflow: hidden;
+    }
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .card-exp:hover .card-img { transform: scale(1.03); }
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
       padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .badge-p0 { background: #E8F0EC; color: #1A432E; }
+    .badge-p1 { background: #FEF3C7; color: #92400E; }
+    .badge-p2 { background: #1A432E; color: #FFFFFF; }
+    .card-scarcity {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(200, 109, 81, 0.95);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      backdrop-filter: blur(4px);
+    }
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .card-location { font-weight: 600; color: var(--primary); }
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .card-host {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .host-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .host-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .card-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .card-price {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .card-price-sub { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+    .btn-card {
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: none;
+      padding: 8px 16px;
       border-radius: 9999px;
       font-weight: 700;
       font-size: 12px;
-      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
     }
-    .badge-P0 { background: #E0F2FE; color: #0369A1; }
-    .badge-P1 { background: #DCFCE7; color: #15803D; }
-    .badge-P2 { background: #FEF3C7; color: #B45309; }
-    .badge-P3 { background: #FEE2E2; color: #B91C1C; }
-    .badge-P4 { background: #111827; color: #F9FAFB; }
-    .split-row {
+    .card-exp:hover .btn-card {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* MODAL & DRAWER */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(28, 25, 23, 0.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 20px;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      padding: 32px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #F3F4F6;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
       display: flex;
-      justify-content: space-between;
-      padding: 7px 0;
-      border-bottom: 1px dashed var(--border);
-      font-size: 13px;
+      align-items: center;
+      justify-content: center;
     }
-    .split-row strong { color: var(--primary); }
-    .tag-bubble {
-      display: inline-block;
-      font-size: 11px;
-      background: #E5E7EB;
-      color: #374151;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin: 2px;
-    }
+
+    /* COCKPIT VIEW TOGGLE */
+    #viewCockpit { display: none; }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <div class="brand">
-      <h1>LORAKS TravelTech Platform</h1>
-      <p>Evrensel Deneyim Pazaryeri · Compliance Engine · İkili Kurumsal Mimari (v3.2 Gold Release)</p>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span class="badge-live">Canlı Altyapı</span>
+      <span>T.C. Kültür ve Turizm Bakanlığı & TÜRSAB A Grubu Lisans No: 2387 Güvencesiyle</span>
     </div>
-    <div class="tursab-badge">
-      <div>HUKUKİ KALKAN & LİSANS</div>
-      <div>TÜRSAB No: 16978 / 2387</div>
+    <div style="font-weight: 600;">
+      <span>6493 S.K. TCMB Güvenli Emanet Havuzu (Escrow) Aktif</span>
     </div>
   </div>
 
-  <div class="grid">
-    <!-- PANEL 1: PATHWAY CLASSIFICATION ENGINE -->
-    <div class="card">
-      <h2>🧭 1. Akıllı Pathway Teşhis Motoru (P0-P4)</h2>
-      <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
-        İlanın özelliklerini seçin; motor ilanı anlık olarak doğru yasal patikaya yönlendirsin.
+  <!-- HEADER -->
+  <header>
+    <div class="navbar">
+      <div class="logo-group" onclick="showView('marketplace')">
+        <span class="logo-text">LORAKS</span>
+        <span class="logo-tagline">Kendine Zaman Tanı</span>
+      </div>
+      <ul class="nav-links">
+        <li><span class="nav-link active" id="tabMarketplace" onclick="showView('marketplace')">🌿 Vitrin & Keşfet</span></li>
+        <li><span class="nav-link" onclick="filterByScarcity()">⏳ Zaman Pencereleri</span></li>
+        <li><span class="nav-link" id="tabCockpit" onclick="showView('cockpit')">⚖️ RegTech & Uyum Kokpiti</span></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-host" onclick="openHostWizard()">🏡 Host Ol (Zanaatını Aç)</button>
+        <button class="btn-primary" onclick="alert('LORAKS Hesabınız: Giriş Yapıldı (Mehmet Bağbozan · Misafir/Host)')">Giriş Yap</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- EPHEMERAL TIMELINE BAR -->
+  <div class="timeline-bar">
+    <div class="timeline-inner">
+      <div class="timeline-label">🔥 Zaman Pencereleri:</div>
+      <div class="timeline-chip" onclick="searchFor('Urla')">🔴 EKİM: 72 Saatlik Anagama Fırını Nöbeti (Kalan: 3 Gün · Urla)</div>
+      <div class="timeline-chip" onclick="searchFor('Ayvalık')">🟠 KASIM: Ayvalık Erken Hasat Soğuk Sıkım (Kontenjan: 6 Kişi · Cunda)</div>
+      <div class="timeline-chip" onclick="searchFor('Kazdağları')">🟢 ARALIK: Kazdağları Kış Mantarı & Flora Keşfi (4 Kişi · Şahinderesi)</div>
+      <div class="timeline-chip" onclick="searchFor('Kapadokya')">🟣 OCAK: Kapadokya Bazalt Yontma & Yeraltı Fırını (5 Kişi · Göreme)</div>
+    </div>
+  </div>
+
+  <!-- VIEW 1: CONSUMER MARKETPLACE (VİTRİN) -->
+  <div id="viewMarketplace">
+    <!-- HERO -->
+    <section class="hero">
+      <span class="hero-eyebrow">Türkiye Deneyim Ekonomisi</span>
+      <h1>YILDA SADECE BİR KEZ AÇILAN ANADOLU ZAMAN PENCERELERİ.</h1>
+      <p>
+        Ekranlardan uzaklaş; yerel zanaatkârların fırınlarına, şeflerin saklı bağ sofralarına ve doğanın kalbine konuk ol.
+        Kaçırırsan bir sonraki hasada kadar 365 gün bekleyeceğin nadir anlar.
       </p>
 
-      <div class="form-group">
-        <label>Deneyim Başlığı:</label>
-        <input type="text" id="listingTitle" value="Bodrum Günbatımı Tekne Yoga & Tadım">
-      </div>
-
-      <div class="form-group">
-        <label>Kategori:</label>
-        <select id="listingCategory">
-          <option value="workshop">Atölye (Workshop)</option>
-          <option value="food">Gastronomi / Şef Tadımı</option>
-          <option value="outdoor" selected>Doğa / Outdoor / Tekne</option>
-          <option value="camp">Doğa Kampı / Geceleme</option>
-          <option value="cultural">Kültür / Tarih</option>
-          <option value="retreat">Kaçamak / İnziva</option>
-        </select>
-      </div>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="chkTransport" checked>
-        <span>Ulaşım / Transfer dahil</span>
-      </label>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="chkAccommodation">
-        <span>Konaklama / Geceleme dahil (Senaryo B Kampı)</span>
-      </label>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="chkHeritage">
-        <span>Tarihi Ören Yeri (Rehber Şartı)</span>
-      </label>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="chkOwnCar">
-        <span>Host kendi şahsi aracıyla taşıyor (P4 Korsan Testi)</span>
-      </label>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="chkHygiene" checked>
-        <span>Hijyen / Uzmanlık Belgesi var</span>
-      </label>
-
-      <button class="btn" onclick="classifyListing()">İlanı Sınıflandır (Classify)</button>
-      <div id="classificationResult" class="result-box" style="display:none;"></div>
-    </div>
-
-    <!-- PANEL 2: FINTECH SPLIT PAYMENT & 1% STOPAJ -->
-    <div class="card">
-      <h2>💳 2. FinTech Split Payment & Stopaj Hesaplayıcı</h2>
-      <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
-        6493 Sayılı Kanun (PSP Split) ve 7524 Sayılı Kanun (%1 stopaj) anlık hesaplama:
-      </p>
-
-      <div class="form-group">
-        <label>Brüt Rezervasyon Tutarı (TL):</label>
-        <input type="number" id="splitGross" value="2000" step="50">
-      </div>
-
-      <div class="form-group">
-        <label>Aktif Pathway Kodu:</label>
-        <select id="splitPathway">
-          <option value="P0">P0 — Doğrudan Atölye (%15 Komisyon)</option>
-          <option value="P1">P1 — Onaylı Deneyim (%15 Komisyon)</option>
-          <option value="P2" selected>P2 — Regüle Seyahat (%12 Komisyon)</option>
-        </select>
-      </div>
-
-      <button class="btn" onclick="calculateSplit()">Fon Dağılımını Hesapla</button>
-      <div id="splitResult" class="result-box" style="display:none;"></div>
-    </div>
-
-    <!-- PANEL 3: TÜRSAB COMPLIANT CHECKOUT PREVIEW -->
-    <div class="card">
-      <h2>🛡️ 3. Canlı Checkout & Güvence Kalkanı</h2>
-      <div id="checkoutBox">
-        <div style="background:#FFF; border:1px solid #D1D5DB; border-radius:8px; padding:12px; margin-bottom:12px;">
-          <div style="font-size:11px; color:#6B7280; font-weight:700;">T.C. KÜLTÜR VE TURİZM BAKANLIĞI DENETİMİ</div>
-          <div style="font-size:13px; font-weight:700; color:#1A432E;">LORAKS Seyahat Acentası A.Ş. (TÜRSAB No: 16978)</div>
-          <div style="font-size:11px; color:#4B5563;">Zorunlu Mesleki Sorumluluk Sigortası teminatı altındadır.</div>
+      <!-- SEARCH CAPSULE -->
+      <div class="search-capsule">
+        <div class="search-field">
+          <span class="search-label">Nereye?</span>
+          <input type="text" class="search-input" id="searchDest" placeholder="Urla, Kapadokya, Kazdağları...">
         </div>
-
-        <div style="background:#F3F4F6; padding:10px 12px; border-radius:8px; display:flex; justify-content:space-between; margin-bottom:12px;">
-          <span>Toplam Ödenecek:</span>
-          <strong id="dispGross" style="color:#1A432E; font-size:16px;">2.000,00 TL</strong>
+        <div class="search-field">
+          <span class="search-label">Hangi Buluşma?</span>
+          <select class="search-input" id="searchCat" style="border:none; background:transparent;">
+            <option value="all">Tüm Deneyimler</option>
+            <option value="zanaat">🏺 Zanaat & Ateş</option>
+            <option value="sofra">🍲 Şef Sofraları</option>
+            <option value="doga">🌿 Saklı Doğa</option>
+            <option value="inziva">🧘‍♀️ İnziva & Kaçamak</option>
+          </select>
         </div>
-
-        <label class="checkbox-label">
-          <input type="checkbox" id="chkMss" onchange="validateCheckout()">
-          <span style="font-size:12px;"><strong>Mesafeli Satış Sözleşmesi</strong>'ni ve cayma hakkı istisnasını onaylıyorum.</span>
-        </label>
-
-        <label class="checkbox-label">
-          <input type="checkbox" id="chkPts" onchange="validateCheckout()">
-          <span style="font-size:12px;"><strong>Paket Tur Sözleşmesi</strong> şartlarını ve sigorta kapsamını kabul ediyorum.</span>
-        </label>
-
-        <button id="btnPay" class="btn" style="background:#9CA3AF; margin-top:8px;" disabled onclick="executeMockCharge()">
-          Ödemeyi Tamamla
-        </button>
-        <div id="chargeResult" class="result-box" style="display:none; margin-top:12px;"></div>
+        <div class="search-field">
+          <span class="search-label">Zaman Penceresi</span>
+          <input type="text" class="search-input" placeholder="Bu Ay Açık">
+        </div>
+        <button class="search-btn" onclick="executeSearch()">Keşfet →</button>
       </div>
+    </section>
+
+    <!-- CATEGORY PILLS -->
+    <div class="category-pills">
+      <button class="cat-pill active" onclick="filterCat('all', this)">✨ Tümü</button>
+      <button class="cat-pill" onclick="filterCat('zanaat', this)">🏺 Zanaat & Ateş (P0 Doğrudan)</button>
+      <button class="cat-pill" onclick="filterCat('sofra', this)">🍲 Şef Sofraları (P1 Sertifikalı)</button>
+      <button class="cat-pill" onclick="filterCat('doga', this)">🌿 Saklı Doğa & Kamp (P2 TÜRSAB)</button>
+      <button class="cat-pill" onclick="filterCat('inziva', this)">🧘‍♀️ İnziva & Atölye</button>
     </div>
 
-    <!-- PANEL 4: REGTECH NLP & SOHBET MASKELEME (Senaryo C) -->
-    <div class="card">
-      <h2>🔍 4. RegTech NLP & Sohbet Maskeleme (Senaryo C)</h2>
-      <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
-        İlan metninde gizli P2 paket tur ve elden ödeme taraması; sohbette IBAN/telefon maskeleme:
+    <!-- CARDS GRID -->
+    <main class="main-container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Seçilmiş Anadolu Deneyimleri</h2>
+          <p class="section-subtitle">Bağımsız üreticiler, mikro gruplar ve yasal güvence kalkanı.</p>
+        </div>
+        <span style="font-size:13px; font-weight:700; color:var(--primary);">6 Seçkin Deneyim Gösteriliyor</span>
+      </div>
+
+      <div class="grid-cards" id="cardsContainer">
+        <!-- JS dinamik olarak dolduracak -->
+      </div>
+    </main>
+  </div>
+
+  <!-- VIEW 2: REGTECH & UYUM KOKPİTİ -->
+  <div id="viewCockpit" style="max-width:1280px; margin:0 auto; padding:32px 24px;">
+    <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; margin-bottom:24px;">
+      <h2 style="font-family:var(--font-serif); font-size:24px; color:var(--primary); margin-bottom:8px;">
+        🏛️ LORAKS RegTech & FinTech Uyum Kokpiti (v3.2 Production Ready)
+      </h2>
+      <p style="font-size:13px; color:var(--text-muted);">
+        Bu panel; arka plandaki Python kural motoru, 5'li Safe Harbor filtreleri, KVK m.13 transfer fiyatlandırması ve 7524 Sayılı Kanun %1 stopaj mekanizmasını test etmek için ayrılmış canlı yönetim merkezidir.
       </p>
-
-      <div class="form-group">
-        <label>Sohbet Mesajı Testi (IBAN / Telefon / Elden Nakit):</label>
-        <textarea id="chatInput" rows="2">Merhaba, ücretin kalanını TR33 0006 1005 1978 6457 8410 01 nolu IBAN'a veya 0532 111 22 33 noya elden nakit verin.</textarea>
-      </div>
-
-      <button class="btn btn-terracotta" onclick="sanitizeChatMessage()">Mesajı Filtrele & Maskele</button>
-      <div id="chatResult" class="result-box" style="display:none;"></div>
-
-      <div class="form-group" style="margin-top:14px;">
-        <label>İlan Metni RegTech Taraması:</label>
-        <textarea id="listingScanInput" rows="2">Atölye ücreti 500 TL olup servis kalkış noktası Kadıköy'dür. Ekstra transfer ücreti şoföre verilecektir.</textarea>
-      </div>
-      <button class="btn" onclick="auditListingText()">İlan Metnini Tara (Scan Listing)</button>
-      <div id="listingScanResult" class="result-box" style="display:none;"></div>
     </div>
 
-    <!-- PANEL 5: SAFE HARBOR DENETİMLERİ (Senaryo A, B, F) -->
-    <div class="card">
-      <h2>⚖️ 5. Safe Harbor Denetimleri (TUREB & TAPDK)</h2>
-      <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
-        Senaryo A (Balat Gezisi / TUREB 6326), Senaryo B (Konvoy Kampı), Senaryo F (Supper Club):
-      </p>
-
-      <div class="form-group">
-        <label>Mekan Ortamı:</label>
-        <select id="safeVenue">
-          <option value="studio">Ticari Stüdyo / Atölye</option>
-          <option value="home">Ev / Konut Ortamı (Supper Club)</option>
-          <option value="outdoor">Açık Hava / Doğa Rotası</option>
-        </select>
-      </div>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="safeAlcohol">
-        <span>Alkollü içki servisi yer alıyor (TAPDK 4733 S.K.)</span>
-      </label>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="safeAllergen">
-        <span>Gıda Alerjen & Sağlık Beyan Formu onaylı</span>
-      </label>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="safeMultiStop">
-        <span>Çok duraklı açık alan gezisi (TUREB 6326 S.K.)</span>
-      </label>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="safeNonGuiding">
-        <span>'Rehberlik yapılmayacaktır, teknik atölyedir' taahhüdü onaylı</span>
-      </label>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="safeCamp">
-        <span>Geceleme / Kamp içeriyor (1618 S.K. Zorunlu P2 Kilidi)</span>
-      </label>
-
-      <button class="btn" onclick="checkSafeHarbor()">Safe Harbor Kurallarını Doğrula</button>
-      <div id="safeHarborResult" class="result-box" style="display:none;"></div>
-    </div>
-
-    <!-- PANEL 6: GVK m.9 & KVK m.13 KONSOLU (Senaryo D & Transfer Fiyatlandırması) -->
-    <div class="card">
-      <h2>📊 6. GVK m.9 Tavan & KVK m.13 Fatura Konsolu</h2>
+    <!-- COCKPIT GRID (ORIGINAL ENGINES) -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(380px, 1fr)); gap:24px;">
       
-      <div style="margin-bottom:14px; padding-bottom:12px; border-bottom:1px dashed var(--border);">
-        <strong style="font-size:13px; color:var(--primary); display:block; margin-bottom:6px;">
-          GVK m.9 Esnaf Muafiyeti Hasılat Sayacı (Senaryo D)
-        </strong>
-        <div class="form-group">
-          <label>Hostun Yıllık Kümülatif Cirosu (TL):</label>
-          <input type="number" id="gvkCumulative" value="850000" step="50000">
+      <!-- KOKPIT 1: PATHWAY CLASSIFIER -->
+      <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px;">
+        <h3 style="font-size:16px; font-weight:700; color:var(--primary); margin-bottom:12px;">🧭 1. Akıllı Pathway Teşhis Motoru (P0-P4)</h3>
+        <div style="margin-bottom:10px;">
+          <label style="font-size:12px; font-weight:600;">Deneyim Başlığı:</label>
+          <input type="text" id="diagTitle" value="Bodrum Günbatımı Tekne Yoga & Tadım" style="width:100%; padding:8px; border:1px solid var(--border); border-radius:6px; margin-top:4px;">
         </div>
-        <div class="form-group">
-          <label>Yeni Rezervasyon Tutarı (TL):</label>
-          <input type="number" id="gvkNewBooking" value="50000" step="10000">
+        <div style="margin-bottom:10px;">
+          <label style="font-size:12px; font-weight:600;">Kategori:</label>
+          <select id="diagCat" style="width:100%; padding:8px; border:1px solid var(--border); border-radius:6px; margin-top:4px;">
+            <option value="workshop">Atölye (Workshop)</option>
+            <option value="food">Gastronomi / Şef Tadımı</option>
+            <option value="outdoor" selected>Doğa / Tekne</option>
+            <option value="camp">Doğa Kampı / Geceleme</option>
+          </select>
         </div>
-        <button class="btn" onclick="checkGvk9Cap()">GVK m.9 Limitini Denetle</button>
-        <div id="gvkResult" class="result-box" style="display:none;"></div>
+        <label style="display:flex; align-items:center; gap:8px; font-size:12px; margin-bottom:6px;">
+          <input type="checkbox" id="chkDiagTransport" checked> Ulaşım / Transfer Dahil
+        </label>
+        <label style="display:flex; align-items:center; gap:8px; font-size:12px; margin-bottom:6px;">
+          <input type="checkbox" id="chkDiagCamp"> Geceleme / Çadır Kampı Dahil
+        </label>
+        <label style="display:flex; align-items:center; gap:8px; font-size:12px; margin-bottom:12px;">
+          <input type="checkbox" id="chkDiagHygiene" checked> Hijyen / Uzmanlık Belgesi Var
+        </label>
+        <button class="btn-primary" style="width:100%; border-radius:8px; padding:10px;" onclick="runDiagClassify()">Sınıflandır (Classify)</button>
+        <div id="diagResult" style="display:none; margin-top:12px; padding:12px; background:#F9FAFB; border-radius:6px; font-size:12px;"></div>
       </div>
 
-      <div>
-        <strong style="font-size:13px; color:var(--primary); display:block; margin-bottom:6px;">
-          KVK m.13 Şirketler Arası Hizmet Faturası (Teknoloji → Acente)
-        </strong>
-        <div class="form-group">
-          <label>Aylık Paylaşılan Sunucu/Personel Maliyeti (TL):</label>
-          <input type="number" id="sharedCost" value="50000" step="5000">
+      <!-- KOKPIT 2: FINTECH SPLIT -->
+      <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px;">
+        <h3 style="font-size:16px; font-weight:700; color:var(--primary); margin-bottom:12px;">💳 2. FinTech Split Payment & Stopaj Hesaplayıcı</h3>
+        <div style="margin-bottom:10px;">
+          <label style="font-size:12px; font-weight:600;">Brüt Tutar (TL):</label>
+          <input type="number" id="diagGross" value="2000" style="width:100%; padding:8px; border:1px solid var(--border); border-radius:6px; margin-top:4px;">
         </div>
-        <button class="btn btn-terracotta" onclick="calcIntercompany()">KVK m.13 Emsal Fatura Hesapla (%10 Cost-Plus)</button>
-        <div id="interResult" class="result-box" style="display:none;"></div>
+        <div style="margin-bottom:12px;">
+          <label style="font-size:12px; font-weight:600;">Pathway Kodu:</label>
+          <select id="diagPathway" style="width:100%; padding:8px; border:1px solid var(--border); border-radius:6px; margin-top:4px;">
+            <option value="P0" selected>P0 — Doğrudan Atölye (%15)</option>
+            <option value="P1">P1 — Onaylı Üretici (%15)</option>
+            <option value="P2">P2 — Regüle Seyahat (%12)</option>
+          </select>
+        </div>
+        <button class="btn-primary" style="width:100%; border-radius:8px; padding:10px;" onclick="runDiagSplit()">Dağılımı Hesapla</button>
+        <div id="diagSplitResult" style="display:none; margin-top:12px; padding:12px; background:#F9FAFB; border-radius:6px; font-size:12px;"></div>
       </div>
+
+      <!-- KOKPIT 3: CHAT MASKELEME -->
+      <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px;">
+        <h3 style="font-size:16px; font-weight:700; color:var(--primary); margin-bottom:12px;">🔍 3. Sohbet Maskeleme & Kayıt Dışı Denetimi</h3>
+        <textarea id="diagChat" rows="3" style="width:100%; padding:8px; border:1px solid var(--border); border-radius:6px; font-size:12px; margin-bottom:10px;">Kalan ücreti TR33 0006 1005 1978 6457 8410 01 nolu IBAN'a veya 0532 111 22 33 noya elden nakit ödeyebilirsiniz.</textarea>
+        <button class="btn-primary" style="width:100%; background:var(--terracotta); border-radius:8px; padding:10px;" onclick="runDiagChat()">Mesajı Filtrele</button>
+        <div id="diagChatResult" style="display:none; margin-top:12px; padding:12px; background:#F9FAFB; border-radius:6px; font-size:12px;"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: EXPERIENCE DETAIL & CHECKOUT DRAWER -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeCheckout()">✕</button>
+      
+      <div id="modalExpContent">
+        <!-- Dinamik doldurulacak -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: HOST ONBOARDING WIZARD -->
+  <div class="modal-overlay" id="hostWizardModal">
+    <div class="modal-content" style="max-width:600px;">
+      <button class="modal-close" onclick="closeHostWizard()">✕</button>
+      
+      <h2 style="font-family:var(--font-serif); font-size:26px; color:var(--primary); margin-bottom:6px;">
+        🏡 Ev Sahibi Ol (Zanaatını Aç)
+      </h2>
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:20px;">
+        Kendi atölyeni veya sofranı 3 adımda güvenle misafirlere aç.
+      </p>
+
+      <!-- STEP 1 -->
+      <div id="step1">
+        <h3 style="font-size:15px; font-weight:700; color:var(--primary); margin-bottom:10px;">1. Adım: Deneyim Tanımı</h3>
+        <div style="margin-bottom:12px;">
+          <label style="font-size:12px; font-weight:600;">Deneyimin Adı:</label>
+          <input type="text" id="hostTitle" value="Urla Bağ Yolu Çömlek & Fırınlama" style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px;">
+        </div>
+        <div style="margin-bottom:12px;">
+          <label style="font-size:12px; font-weight:600;">Kategori:</label>
+          <select id="hostCategory" style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px;">
+            <option value="zanaat">🏺 Zanaat & Atölye</option>
+            <option value="sofra">🍲 Gastronomi & Şef Sofrası</option>
+            <option value="doga">🌿 Doğa & Yürüyüş</option>
+          </select>
+        </div>
+        <button class="btn-primary" style="width:100%; border-radius:8px; margin-top:10px;" onclick="goToStep(2)">2. Adıma Geç (Lojistik Soruları) →</button>
+      </div>
+
+      <!-- STEP 2 -->
+      <div id="step2" style="display:none;">
+        <h3 style="font-size:15px; font-weight:700; color:var(--primary); margin-bottom:10px;">2. Adım: 4 Temel Lojistik Sorusu</h3>
+        <p style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Mevzuata uygun en doğru sözleşmeyi hazırlamak için:</p>
+        
+        <label style="display:flex; align-items:center; gap:8px; font-size:13px; margin-bottom:10px;">
+          <input type="checkbox" id="hChkFixed" checked> Buluşma sabit kendi atölyemde/evimde olacak (Ulaşım yok)
+        </label>
+        <label style="display:flex; align-items:center; gap:8px; font-size:13px; margin-bottom:10px;">
+          <input type="checkbox" id="hChkOvernight"> Deneyim geceleme / çadır konaklaması içeriyor
+        </label>
+        <label style="display:flex; align-items:center; gap:8px; font-size:13px; margin-bottom:10px;">
+          <input type="checkbox" id="hChkTransport"> Misafirlere araçla transfer sağlanacak
+        </label>
+        <label style="display:flex; align-items:center; gap:8px; font-size:13px; margin-bottom:16px;">
+          <input type="checkbox" id="hChkAlcohol"> Ücret karşılığı alkollü içki servisi var (Evde Yasaktır)
+        </label>
+
+        <div style="display:flex; gap:10px;">
+          <button class="btn-host" style="flex:1;" onclick="goToStep(1)">← Geri</button>
+          <button class="btn-primary" style="flex:2;" onclick="goToStep(3)">3. Adıma Geç (Fiyat & Hak Ediş) →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div id="step3" style="display:none;">
+        <h3 style="font-size:15px; font-weight:700; color:var(--primary); margin-bottom:10px;">3. Adım: Fiyat & Şeffaf Hak Ediş</h3>
+        <div style="margin-bottom:16px;">
+          <label style="font-size:12px; font-weight:600;">Kişi Başı Bilet Fiyatı (TL):</label>
+          <input type="number" id="hostPrice" value="2000" oninput="updateHostNetCalc()" style="width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; font-size:16px; font-weight:700; color:var(--primary);">
+        </div>
+
+        <!-- REAL-TIME NET PAYOUT BOX -->
+        <div style="background:#F9FAFB; border:1.5px solid var(--primary); border-radius:12px; padding:16px; margin-bottom:16px;">
+          <div style="font-size:11px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px;">HAK EDİŞ ARİTMETİĞİ (TFRS 15):</div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;">
+            <span>Gezginin Ödediği Brüt Bilet:</span>
+            <strong id="hCalcGross">2.000,00 TL</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px; color:#4B5563;">
+            <span>LORAKS Hizmet Payı (%15, KDV Dahil):</span>
+            <span id="hCalcFee">-300,00 TL</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:8px; color:#B45309;">
+            <span>7524 Sayılı Kanun %1 Stopaj (GİB):</span>
+            <span id="hCalcTax">-16,67 TL</span>
+          </div>
+          <div style="border-top:1px dashed #D1D5DB; padding-top:8px; display:flex; justify-content:space-between; align-items:baseline;">
+            <span style="font-size:14px; font-weight:800; color:var(--primary);">Cebinize Kalan Net Kazanç:</span>
+            <span id="hCalcNet" style="font-size:22px; font-weight:900; color:#15803D;">1.683,33 TL</span>
+          </div>
+        </div>
+
+        <!-- SMMM INCUBATOR CARD -->
+        <div style="background:var(--primary-soft); border-radius:10px; padding:14px; margin-bottom:16px; font-size:12px;">
+          <strong style="color:var(--primary); display:block; margin-bottom:4px;">📢 Mali Müşaviriniz veya Şirketiniz Yok mu?</strong>
+          <span>Hiç endişelenmeyin! Genç Girişimci istisnası, Esnaf Muafiyeti ve 24 saatte şirket açılışını anlaşmalı mali müşavir ağımız ve Paraşüt entegrasyonuyla çözüyoruz.</span>
+          <label style="display:flex; align-items:center; gap:6px; margin-top:8px; font-weight:600; cursor:pointer;">
+            <input type="checkbox" checked> Ücretsiz Şirketleşme & Danışmanlık Desteği İstiyorum
+          </label>
+        </div>
+
+        <div style="display:flex; gap:10px;">
+          <button class="btn-host" style="flex:1;" onclick="goToStep(2)">← Geri</button>
+          <button class="btn-primary" style="flex:2;" onclick="publishListing()">İlanı Yayınla & Başlat 🎉</button>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <script>
-    async function classifyListing() {
+    // INITIAL REAL EXPERIENCES
+    const experiences = [
+      {
+        id: "exp-1",
+        title: "Urla Sanat Sokağı — 4 Saatlik Çömlek & Anagama Fırınlama",
+        location: "Urla, İzmir",
+        category: "zanaat",
+        host: "Mehmet Usta",
+        cohort: "Maks. 6 Kişi",
+        rating: "4.98",
+        price: 2000,
+        pathway: "P0",
+        pathwayName: "Doğrudan Zanaat (P0)",
+        scarcity: "Kalan: 2 Kontenjan",
+        image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=800&q=80",
+        desc: "Urla'nın taş sokaklarındaki asırlık atölyede geleneksel çark başında kil yoğurma, form verme ve odun ateşli fırında sırlama ritüeli. Çay ikramı ve kendi ürettiğiniz seramik parça dahil.",
+        included: ["Tüm Kil & Seramik Malzemeleri", "Fırınlama & Kargo", "Köy Çayı & İncir İkramı"]
+      },
+      {
+        id: "exp-2",
+        title: "Kadıköy Tarihi Moda Köşkü — 5 Tabaklı Ege Otları Şef Masası",
+        location: "Moda, İstanbul",
+        category: "sofra",
+        host: "Şef Zeynep",
+        cohort: "Maks. 8 Kişi",
+        rating: "4.95",
+        price: 2500,
+        pathway: "P1",
+        pathwayName: "Sertifikalı Şef Sofrası (P1)",
+        scarcity: "Bu Hafta Sonu",
+        image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+        desc: "120 yıllık ahşap köşkün kış bahçesinde, Ayvalık ve Cunda'dan günübirlik toplanmış taze otlarla hazırlanan 5 tabaklık tadım menüsü. Gıda hijyen sertifikalı şef mutfağında unutulmaz bir akşam.",
+        included: ["5 Tabaklı Tadım Menüsü", "Şef Anlatımı & Reçeteler", "Özel Ev Yapımı Şerbetler"]
+      },
+      {
+        id: "exp-3",
+        title: "Kabak Koyu — 2 Gün 1 Gece Doğa & Nefes İnzivası",
+        location: "Fethiye, Muğla",
+        category: "doga",
+        host: "Doğa Rehberi Ali",
+        cohort: "Maks. 6 Kişi",
+        rating: "5.0",
+        price: 4000,
+        pathway: "P2",
+        pathwayName: "TÜRSAB Güvenceli (P2)",
+        scarcity: "Son 3 Çadır",
+        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        desc: "Akdeniz'in bakir vadisinde çam kokuları eşliğinde gün doğumu meditasyonu, Likya kanyon yürüyüşü ve yıldızlar altında nefes çemberi. A Grubu Seyahat Acentesi ve Zorunlu Seyahat Sigortalıdır.",
+        included: ["Zorunlu Paket Tur Sigortası", "1 Gece Kamp / Konaklama", "Sabah Köy Kahvaltısı", "Kanyon Rehberliği"]
+      },
+      {
+        id: "exp-4",
+        title: "Kapadokya Kızılçukur — Gün Doğumu Bazalt Heykel Yontma",
+        location: "Göreme, Nevşehir",
+        category: "zanaat",
+        host: "Heykeltıraş Can",
+        cohort: "Maks. 4 Kişi",
+        rating: "4.92",
+        price: 3500,
+        pathway: "P0",
+        pathwayName: "Doğrudan Zanaat (P0)",
+        scarcity: "Özel Sezon",
+        image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80",
+        desc: "Peri bacalarının eteklerindeki açık hava taş oyma stüdyosunda bazalt ve tüf taşı ile heykel yapım tekniği. Çekiç, murç ve taş işleme prensiplerini yerel ustasından birebir öğrenin.",
+        included: ["Tüm Yontma Aletleri & Koruyucu Ekipman", "İşlenen Taş Eserin Teslimi", "Sıcak Çay & Çerez"]
+      },
+      {
+        id: "exp-5",
+        title: "Ayvalık Cunda — Asırlık Zeytinlikte Soğuk Sıkım & Hasat Masası",
+        location: "Cunda, Balıkesir",
+        category: "sofra",
+        host: "Zeytinci Fatma",
+        cohort: "Maks. 8 Kişi",
+        rating: "4.97",
+        price: 2800,
+        pathway: "P1",
+        pathwayName: "Onaylı Üretici (P1)",
+        scarcity: "Kasım Özel",
+        image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+        desc: "Denize nazır 150 yıllık zeytinlikte dalından erken hasat toplama, taş değirmende ilk yağın akışını izleme ve sıcak zeytinyağı eşliğinde köy ekmeği tadımı.",
+        included: ["1 Litre Taze Sıkım Zeytinyağı", "Zeytinlik İçi Açık Büfe Tadım", "Hasat Sertifikası"]
+      },
+      {
+        id: "exp-6",
+        title: "Kazdağları Şahinderesi — Kanyon Geçişi & Kış Mantarı Keşfi",
+        location: "Edremit, Balıkesir",
+        category: "doga",
+        host: "Dağcı Murat",
+        cohort: "Maks. 6 Kişi",
+        rating: "4.89",
+        price: 3200,
+        pathway: "P2",
+        pathwayName: "TÜRSAB Güvenceli (P2)",
+        scarcity: "Kış Penceresi",
+        image: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+        desc: "Mitolojik İda Dağı'nın en yüksek oksijen vadisinde yabani mantar tespiti, flora anlatımı ve güvenli kanyon geçişi. Lisanslı rehber ve transfer desteğiyle.",
+        included: ["Milli Park Girişleri & Lisanslı Rehber", "Zorunlu Seyahat Sigortası", "Dağ Çorbası & İkram"]
+      }
+    ];
+
+    let currentExp = null;
+
+    // RENDER CARDS
+    function renderCards(list) {
+      const c = document.getElementById("cardsContainer");
+      c.innerHTML = list.map(item => `
+        <div class="card-exp" onclick="openCheckout('${item.id}')">
+          <div class="card-img-wrapper">
+            <img class="card-img" src="${item.image}" alt="${item.title}" loading="lazy">
+            <span class="card-badge badge-${item.pathway.toLowerCase()}">${item.pathwayName}</span>
+            <span class="card-scarcity">${item.scarcity}</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-location">📍 ${item.location}</span>
+              <span>👥 ${item.cohort}</span>
+            </div>
+            <h3 class="card-title">${item.title}</h3>
+            <div class="card-host">
+              <div class="host-avatar">${item.host.charAt(0)}</div>
+              <span class="host-name">Ev Sahibi: ${item.host}</span>
+              <span style="margin-left:auto; font-size:12px; font-weight:700; color:var(--amber);">★ ${item.rating}</span>
+            </div>
+            <div class="card-footer">
+              <div>
+                <span class="card-price">${item.price.toLocaleString('tr-TR')} TL</span>
+                <span class="card-price-sub"> / kişi</span>
+              </div>
+              <button class="btn-card">İncele & Ayırt →</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // FILTER
+    function filterCat(cat, btn) {
+      document.querySelectorAll(".cat-pill").forEach(p => p.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+      if (cat === "all") renderCards(experiences);
+      else renderCards(experiences.filter(x => x.category === cat));
+    }
+
+    function searchFor(term) {
+      document.getElementById("searchDest").value = term;
+      executeSearch();
+    }
+
+    function executeSearch() {
+      const dest = document.getElementById("searchDest").value.toLowerCase();
+      const cat = document.getElementById("searchCat").value;
+      let filtered = experiences.filter(x => {
+        const mDest = !dest || x.location.toLowerCase().includes(dest) || x.title.toLowerCase().includes(dest);
+        const mCat = cat === "all" || x.category === cat;
+        return mDest && mCat;
+      });
+      renderCards(filtered);
+    }
+
+    function filterByScarcity() {
+      showView('marketplace');
+      renderCards(experiences.filter(x => x.scarcity.includes("Kalan") || x.scarcity.includes("Son")));
+    }
+
+    // VIEW SWITCHER
+    function showView(view) {
+      if (view === 'marketplace') {
+        document.getElementById('viewMarketplace').style.display = 'block';
+        document.getElementById('viewCockpit').style.display = 'none';
+        document.getElementById('tabMarketplace').classList.add('active');
+        document.getElementById('tabCockpit').classList.remove('active');
+      } else {
+        document.getElementById('viewMarketplace').style.display = 'none';
+        document.getElementById('viewCockpit').style.display = 'block';
+        document.getElementById('tabMarketplace').classList.remove('active');
+        document.getElementById('tabCockpit').classList.add('active');
+      }
+    }
+
+    // CHECKOUT MODAL
+    function openCheckout(id) {
+      currentExp = experiences.find(x => x.id === id);
+      if (!currentExp) return;
+
+      const gross = currentExp.price;
+      const fee = gross * 0.15;
+      const tax = (gross / 1.20) * 0.01;
+      const net = gross - fee - tax;
+
+      const html = `
+        <div style="display:flex; gap:16px; align-items:center; margin-bottom:16px;">
+          <img src="${currentExp.image}" style="width:90px; height:90px; border-radius:12px; object-fit:cover;">
+          <div>
+            <span class="card-badge badge-${currentExp.pathway.toLowerCase()}" style="position:static; margin-bottom:4px; display:inline-block;">${currentExp.pathwayName}</span>
+            <h3 style="font-family:var(--font-serif); font-size:20px; font-weight:700; color:var(--primary); line-height:1.2;">${currentExp.title}</h3>
+            <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">📍 ${currentExp.location} · 👤 Host: ${currentExp.host}</div>
+          </div>
+        </div>
+
+        <p style="font-size:13px; color:#4B5563; line-height:1.6; margin-bottom:16px; background:#FAFAFA; padding:12px; border-radius:8px;">
+          ${currentExp.desc}
+        </p>
+
+        <!-- TRUST BADGE -->
+        <div style="background:#E8F0EC; border:1px solid #C8DED0; border-radius:10px; padding:12px; margin-bottom:16px;">
+          <div style="font-size:11px; font-weight:800; color:var(--primary);">🛡️ YASAL VE MALİ GÜVENCE</div>
+          <div style="font-size:12px; color:#1C1917; margin-top:2px;">
+            ${currentExp.pathway === 'P2' 
+              ? 'Bu deneyim <strong>TÜRSAB A Grubu Lisans No: 2387</strong> kapsamında LORAKS Seyahat Acentesi güvencesinde ve Zorunlu Seyahat Sigortası korumasındadır.' 
+              : 'Bu deneyim doğrudan bağımsız zanaatkâr atölyesinde gerçekleşir. Ödemeniz <strong>6493 S.K. lisanslı TCMB havuzunda</strong> QR check-in ifa anına kadar güvencededir.'}
+          </div>
+        </div>
+
+        <!-- SPLIT SUMMARY FOR BUYER -->
+        <div style="background:#fff; border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:16px;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:14px;">
+            <span>Kişi Başı Tutar:</span>
+            <strong>${gross.toLocaleString('tr-TR')} TL</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:14px;">
+            <span>Misafir Sayısı:</span>
+            <span>1 Kişi</span>
+          </div>
+          <div style="border-top:1px dashed var(--border); padding-top:8px; display:flex; justify-content:space-between; font-size:16px; font-weight:800; color:var(--primary);">
+            <span>Toplam Ödenecek:</span>
+            <span>${gross.toLocaleString('tr-TR')},00 TL</span>
+          </div>
+        </div>
+
+        <label style="display:flex; align-items:center; gap:8px; font-size:12px; margin-bottom:12px; cursor:pointer;">
+          <input type="checkbox" id="chkModalAgree" checked>
+          <span>Mesafeli Satış Sözleşmesi ve Seyahat İfa Şartlarını kabul ediyorum.</span>
+        </label>
+
+        <button class="btn-primary" style="width:100%; border-radius:10px; padding:14px; font-size:15px;" onclick="simulateBooking()">
+          Güvenli Rezervasyon Yap (${gross.toLocaleString('tr-TR')} TL)
+        </button>
+
+        <div id="bookingConfirmation" style="display:none; margin-top:16px; padding:16px; background:#DCFCE7; border-radius:10px; border:1px solid #86EFAC;">
+        </div>
+      `;
+
+      document.getElementById('modalExpContent').innerHTML = html;
+      document.getElementById('checkoutModal').style.display = 'flex';
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkoutModal').style.display = 'none';
+    }
+
+    async function simulateBooking() {
+      const btn = event.target;
+      btn.innerText = "İşlem Yapılıyor (PSP Split & Escrow)...";
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/charge', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            gross_amount: currentExp.price,
+            pathway_code: currentExp.pathway
+          })
+        });
+        const data = await res.json();
+
+        const box = document.getElementById('bookingConfirmation');
+        box.style.display = 'block';
+        box.innerHTML = `
+          <div style="color:#15803D; font-weight:800; font-size:15px; margin-bottom:6px;">🎉 Rezervasyonunuz Onaylandı!</div>
+          <div style="font-size:13px; color:#166534;">
+            <strong>Rezervasyon Kodu:</strong> ${data.booking_id}<br>
+            <strong>Emanet Durumu:</strong> HELD_IN_ESCROW (TCMB Lisanslı Havuz)<br>
+            <strong>QR Check-in Kodu:</strong> <span style="font-family:monospace; font-weight:700;">QR-${data.booking_id}-OK</span>
+          </div>
+          <div style="margin-top:8px; font-size:11px; color:#4B5563;">
+            * Deneyim alanına gittiğinizde bu QR kodu host'a okuttuğunuzda ifa gerçekleşecek ve host hak edişi en geç T+1 iş gününde aktarılacaktır.
+          </div>
+        `;
+        btn.style.display = 'none';
+      } catch (e) {
+        alert("Rezervasyon simülasyonu hatası: " + e.message);
+        btn.innerText = "Tekrar Dene";
+        btn.disabled = false;
+      }
+    }
+
+    // HOST WIZARD
+    function openHostWizard() {
+      document.getElementById('hostWizardModal').style.display = 'flex';
+      goToStep(1);
+      updateHostNetCalc();
+    }
+    function closeHostWizard() {
+      document.getElementById('hostWizardModal').style.display = 'none';
+    }
+    function goToStep(s) {
+      document.getElementById('step1').style.display = s === 1 ? 'block' : 'none';
+      document.getElementById('step2').style.display = s === 2 ? 'block' : 'none';
+      document.getElementById('step3').style.display = s === 3 ? 'block' : 'none';
+    }
+
+    function updateHostNetCalc() {
+      const p = parseFloat(document.getElementById('hostPrice').value) || 2000;
+      const fee = p * 0.15;
+      const tax = (p / 1.20) * 0.01;
+      const net = p - fee - tax;
+
+      document.getElementById('hCalcGross').innerText = p.toLocaleString('tr-TR') + ",00 TL";
+      document.getElementById('hCalcFee').innerText = "-" + fee.toFixed(2) + " TL";
+      document.getElementById('hCalcTax').innerText = "-" + tax.toFixed(2) + " TL";
+      document.getElementById('hCalcNet').innerText = net.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " TL";
+    }
+
+    function publishListing() {
+      const title = document.getElementById('hostTitle').value;
+      const price = parseFloat(document.getElementById('hostPrice').value) || 2000;
+      const cat = document.getElementById('hostCategory').value;
+      const hasCamp = document.getElementById('hChkOvernight').checked;
+
+      const newExp = {
+        id: "exp-" + (experiences.length + 1),
+        title: title,
+        location: "Urla, İzmir",
+        category: cat,
+        host: "Yeni Kayıtlı Host",
+        cohort: "Maks. 6 Kişi",
+        rating: "5.0",
+        price: price,
+        pathway: hasCamp ? "P2" : "P0",
+        pathwayName: hasCamp ? "TÜRSAB Güvenceli (P2)" : "Doğrudan Zanaat (P0)",
+        scarcity: "Yeni Açıldı",
+        image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
+        desc: "Yeni bağımsız atölye. Ziyaretçiler için taze hazırlanmış içerik.",
+        included: ["Tüm Malzemeler", "İkramlar"]
+      };
+
+      experiences.unshift(newExp);
+      renderCards(experiences);
+      closeHostWizard();
+      showView('marketplace');
+      alert("Tebrikler! İlanınız başarıyla incelendi, yasal patikası belirlendi ve LORAKS vitrininde canlıya alındı!");
+    }
+
+    // COCKPIT DIAGNOSTIC RUNNERS
+    async function runDiagClassify() {
       const payload = {
-        title: document.getElementById('listingTitle').value,
-        category: document.getElementById('listingCategory').value,
-        transport_arranged: document.getElementById('chkTransport').checked ? 'included_in_price' : 'none',
-        transport_operator: document.getElementById('chkOwnCar').checked ? 'organiser_own_vehicle' : (document.getElementById('chkTransport').checked ? 'licensed_transport_company' : 'none'),
-        accommodation_included: document.getElementById('chkAccommodation').checked,
-        overnight: document.getElementById('chkAccommodation').checked,
-        heritage_or_protected_site: document.getElementById('chkHeritage').checked,
-        has_hygiene_cert: document.getElementById('chkHygiene').checked,
-        services_bundled: document.getElementById('chkTransport').checked ? ['transport', 'guide'] : ['instruction']
+        title: document.getElementById('diagTitle').value,
+        category: document.getElementById('diagCat').value,
+        transport_arranged: document.getElementById('chkDiagTransport').checked ? 'included_in_price' : 'none',
+        transport_operator: document.getElementById('chkDiagTransport').checked ? 'licensed_transport_company' : 'none',
+        accommodation_included: document.getElementById('chkDiagCamp').checked,
+        overnight: document.getElementById('chkDiagCamp').checked,
+        heritage_or_protected_site: false,
+        has_hygiene_cert: document.getElementById('chkDiagHygiene').checked,
+        services_bundled: document.getElementById('chkDiagTransport').checked ? ['transport', 'guide'] : ['instruction']
       };
 
       const res = await fetch('/api/classify', {
@@ -392,218 +1186,48 @@
         body: JSON.stringify(payload)
       });
       const data = await res.json();
-
-      const box = document.getElementById('classificationResult');
-      box.style.display = 'block';
-      box.innerHTML = `
-        <span class="badge-pill badge-${data.pathway_code}">${data.pathway_code} — ${data.name}</span>
-        <div><strong>Hukuki Sözleşen Taraf:</strong> ${data.contracting_party}</div>
-        <div><strong>Görünecek Rozet:</strong> ${data.badge}</div>
-        <div><strong>Zorunlu Sigorta:</strong> ${data.requires_insurance ? 'EVET (Paket Tur Sigortası)' : 'HAYIR'}</div>
-        <div style="margin-top:6px; color:#4B5563;"><strong>Gerekçeler:</strong> ${data.reasons.join(', ')}</div>
-      `;
-
-      document.getElementById('splitPathway').value = ['P0','P1','P2'].includes(data.pathway_code) ? data.pathway_code : 'P0';
+      const b = document.getElementById('diagResult');
+      b.style.display = 'block';
+      b.innerHTML = `<strong>Sonuç:</strong> ${data.pathway_code} (${data.name})<br>
+                     <strong>Sözleşen Taraf:</strong> ${data.contracting_party}<br>
+                     <strong>Zorunlu Sigorta:</strong> ${data.requires_insurance ? 'EVET' : 'HAYIR'}<br>
+                     <strong>Gerekçeler:</strong> ${data.reasons.join(', ')}`;
     }
 
-    async function calculateSplit() {
-      const gross = parseFloat(document.getElementById('splitGross').value) || 1000;
-      const pathway = document.getElementById('splitPathway').value;
-
+    async function runDiagSplit() {
+      const gross = parseFloat(document.getElementById('diagGross').value) || 2000;
+      const pathway = document.getElementById('diagPathway').value;
       const res = await fetch('/api/calculate-split', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ gross_amount: gross, pathway_code: pathway })
       });
       const data = await res.json();
-
-      const box = document.getElementById('splitResult');
-      box.style.display = 'block';
-      box.innerHTML = `
-        <div class="split-row"><span>Brüt Tutar (GMV):</span> <strong>${data.gross_amount.toFixed(2)} TL</strong></div>
-        <div class="split-row"><span>LORAKS Komisyonu (%${(data.commission_rate*100).toFixed(0)}):</span> <strong>${data.splits.platform_take_rate.gross_amount.toFixed(2)} TL (KDV Dahil)</strong></div>
-        <div class="split-row" style="color:#B45309;"><span>7524 Sayılı %1 Stopaj (GİB):</span> <strong>-${data.splits.tax_withholding_gib.amount.toFixed(2)} TL</strong></div>
-        <div class="split-row" style="color:#15803D;"><span>Host Net Hak Ediş:</span> <strong>${data.splits.supplier_net_payout.net_amount.toFixed(2)} TL</strong></div>
-        <div style="margin-top:8px; font-size:11px; color:#6B7280;">
-          <strong>TFRS 15 B2B Faturası:</strong> LORAKS Teknoloji → Acente/Host (${data.splits.platform_take_rate.gross_amount.toFixed(2)} TL)<br>
-          <strong>TFRS 15 B2C Faturası:</strong> ${data.invoicing.b2c_customer_invoice.issuer} → Gezgin (${data.gross_amount.toFixed(2)} TL)
-        </div>
-      `;
-
-      document.getElementById('dispGross').innerText = `${gross.toFixed(2)} TL`;
+      const b = document.getElementById('diagSplitResult');
+      b.style.display = 'block';
+      b.innerHTML = `<strong>Brüt:</strong> ${data.gross_amount.toFixed(2)} TL<br>
+                     <strong>LORAKS Payı:</strong> ${data.splits.platform_take_rate.gross_amount.toFixed(2)} TL<br>
+                     <strong>7524 Stopaj (GİB):</strong> -${data.splits.tax_withholding_gib.amount.toFixed(2)} TL<br>
+                     <strong style="color:#15803D;">Host Net Hak Ediş:</strong> ${data.splits.supplier_net_payout.net_amount.toFixed(2)} TL`;
     }
 
-    function validateCheckout() {
-      const mss = document.getElementById('chkMss').checked;
-      const pts = document.getElementById('chkPts').checked;
-      const btn = document.getElementById('btnPay');
-      if (mss && pts) {
-        btn.disabled = false;
-        btn.style.background = '#1A432E';
-      } else {
-        btn.disabled = true;
-        btn.style.background = '#9CA3AF';
-      }
-    }
-
-    async function executeMockCharge() {
-      const gross = parseFloat(document.getElementById('splitGross').value) || 2000;
-      const res = await fetch('/api/charge', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          booking_id: 'BK-' + Date.now(),
-          gross_amount: gross,
-          pathway_code: 'P2',
-          idempotency_key: 'idemp_' + Date.now()
-        })
-      });
-      const data = await res.json();
-      const box = document.getElementById('chargeResult');
-      box.style.display = 'block';
-      box.innerHTML = `
-        <div style="color:#15803D; font-weight:700;">✅ Rezervasyon ve Ödeme Başarılı!</div>
-        <div style="font-size:12px; margin-top:4px;">
-          <strong>Ödeme ID:</strong> ${data.data.payment_id}<br>
-          <strong>Durum:</strong> ${data.data.status} (TCMB Lisanslı Havuzda Bloke)<br>
-          <strong>Zorunlu Sigorta:</strong> Katılımcı adına poliçe kuyruğa iletildi.<br>
-          <strong>QR Kod:</strong> Girişte taranınca T+1'de hak ediş salınacaktır.
-        </div>
-      `;
-    }
-
-    async function sanitizeChatMessage() {
-      const msg = document.getElementById('chatInput').value;
+    async function runDiagChat() {
+      const msg = document.getElementById('diagChat').value;
       const res = await fetch('/api/chat-sanitize', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ message: msg })
       });
       const data = await res.json();
-      const box = document.getElementById('chatResult');
-      box.style.display = 'block';
-      box.innerHTML = `
-        <div style="font-weight:700; color:${data.violation_detected ? '#B45309' : '#15803D'};">
-          ${data.violation_detected ? '⚠️ Kural İhlali Tespit Edildi ve Maskelendi!' : '✅ Güvenli Mesaj'}
-        </div>
-        <div style="margin-top:6px; font-size:12px; background:#FFF; padding:8px; border-radius:6px; border:1px solid #E5E7EB;">
-          <strong>Maskelenmiş Mesaj:</strong><br>${data.sanitized_message}
-        </div>
-        ${data.reasons.length ? `<div style="font-size:11px; color:#B45309; margin-top:4px;">Nedenler: ${data.reasons.join(', ')}</div>` : ''}
-      `;
+      const b = document.getElementById('diagChatResult');
+      b.style.display = 'block';
+      b.innerHTML = `<strong>Orijinal:</strong> ${msg}<br>
+                     <strong style="color:var(--terracotta);">Filtrelenmiş Mesaj:</strong> ${data.sanitized_message}<br>
+                     <strong>İhlal Sayısı:</strong> ${data.violations.length} adet (${data.violations.map(v => v.type).join(', ')})`;
     }
 
-    async function auditListingText() {
-      const text = document.getElementById('listingScanInput').value;
-      const res = await fetch('/api/audit-listing', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ listing_text: text })
-      });
-      const data = await res.json();
-      const box = document.getElementById('listingScanResult');
-      box.style.display = 'block';
-      box.innerHTML = `
-        <div style="font-weight:700; color:${data.compliance_status === 'PASSED' ? '#15803D' : '#DC2626'};">
-          Durum: ${data.compliance_status}
-        </div>
-        <div style="font-size:12px; margin-top:4px;">
-          <strong>Gizli P2 Maskeleme:</strong> ${data.p2_masking_detected ? 'EVET ⚠️ (Karantina)' : 'YOK ✅'}<br>
-          <strong>Platform Dışı Ödeme:</strong> ${data.off_platform_audit.detected ? 'EVET (' + data.off_platform_audit.matched_keywords.join(', ') + ')' : 'YOK ✅'}
-        </div>
-      `;
-    }
-
-    async function checkSafeHarbor() {
-      const payload = {
-        venue_type: document.getElementById('safeVenue').value,
-        alcohol_served: document.getElementById('safeAlcohol').checked,
-        allergen_declaration_accepted: document.getElementById('safeAllergen').checked,
-        is_multi_stop: document.getElementById('safeMultiStop').checked,
-        non_guiding_warranty_accepted: document.getElementById('safeNonGuiding').checked,
-        overnight: document.getElementById('safeCamp').checked,
-        category: document.getElementById('safeVenue').value === 'home' ? 'food' : 'workshop'
-      };
-
-      const res = await fetch('/api/safe-harbor-check', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
-      });
-      const data = await res.json();
-      const box = document.getElementById('safeHarborResult');
-      box.style.display = 'block';
-      if (res.status === 200) {
-        box.innerHTML = `
-          <div style="color:#15803D; font-weight:700;">✅ Safe Harbor Şartları Sağlandı!</div>
-          <div style="font-size:12px; margin-top:4px;">
-            <strong>TUREB Durumu:</strong> ${data.turing_audit.status}<br>
-            <strong>Geceleme P2 Kilidi:</strong> ${data.overnight_p2_lock ? 'EVET (Acente Şemsiyesi)' : 'HAYIR'}<br>
-            <strong>TAPDK Kontrolü:</strong> ${data.supper_club_audit.tapdk_cleared ? 'ONAYLI' : 'RED'}
-          </div>
-        `;
-      } else {
-        box.innerHTML = `
-          <div style="color:#DC2626; font-weight:700;">❌ Mevzuat İhlali:</div>
-          <div style="font-size:12px; margin-top:4px; color:#991B1B;">${data.message}</div>
-        `;
-      }
-    }
-
-    async function checkGvk9Cap() {
-      const cumulative = parseFloat(document.getElementById('gvkCumulative').value) || 0;
-      const newBooking = parseFloat(document.getElementById('gvkNewBooking').value) || 0;
-      const res = await fetch('/api/gvk9-check', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ cumulative_annual_gmv: cumulative, new_booking_amount: newBooking })
-      });
-      const data = await res.json();
-      const box = document.getElementById('gvkResult');
-      box.style.display = 'block';
-      if (res.status === 200) {
-        box.innerHTML = `
-          <div style="color:${data.status === 'WITHIN_LIMIT' ? '#15803D' : '#B45309'}; font-weight:700;">
-            ${data.status === 'WITHIN_LIMIT' ? '✅ Limit Dahilinde' : '⚠️ Limit Uyarısı (%' + data.ratio_used + ')'}
-          </div>
-          <div style="font-size:12px; margin-top:4px;">
-            <strong>Kalan Kota:</strong> ${data.remaining_quota.toLocaleString('tr-TR')} TL<br>
-            ${data.warning_message ? `<span style="color:#B45309;">${data.warning_message}</span>` : ''}
-          </div>
-        `;
-      } else {
-        box.innerHTML = `
-          <div style="color:#DC2626; font-weight:700;">❌ Rezervasyon Engellendi:</div>
-          <div style="font-size:12px; margin-top:4px; color:#991B1B;">${data.message}</div>
-        `;
-      }
-    }
-
-    async function calcIntercompany() {
-      const costs = parseFloat(document.getElementById('sharedCost').value) || 50000;
-      const res = await fetch('/api/intercompany-invoice', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ allocated_shared_costs: costs, p2_gross_turnover: 500000, method: 'COST_PLUS' })
-      });
-      const data = await res.json();
-      const box = document.getElementById('interResult');
-      box.style.display = 'block';
-      box.innerHTML = `
-        <div style="font-size:12px;">
-          <strong>Düzenleyen:</strong> ${data.issuer}<br>
-          <strong>Muhatap:</strong> ${data.recipient}<br>
-          <strong>Net Matrah (%10 Kâr):</strong> ${data.base_amount_net.toFixed(2)} TL<br>
-          <strong>%20 KDV:</strong> ${data.vat_amount.toFixed(2)} TL<br>
-          <strong>Toplam Fatura:</strong> <strong style="color:#1A432E;">${data.total_invoice_amount.toFixed(2)} TL</strong>
-        </div>
-      `;
-    }
-
-    // Auto-run first calculation on load
-    window.onload = function() {
-      calculateSplit();
-    };
+    // ON LOAD
+    renderCards(experiences);
   </script>
 </body>
 </html>
